@@ -1,0 +1,94 @@
+'user strict';
+
+var SlidingElement = function(e){
+
+	this.DOMElement = document.querySelector(e);
+	this.parent = this.DOMElement.parentNode;
+	this.transition = window.getComputedStyle(this.DOMElement,null).getPropertyValue("transition");;
+	this.position = window.getComputedStyle(this.DOMElement,null).getPropertyValue("position");
+	this.translation = 0;
+	this.delay = 0;
+}
+
+/*
+* function
+* @translation = int
+* @attributs = {} (optional)
+* @attributs.duration = int (time in ms) (optional)
+* @attributs.delay = int (time in ms) (optional)
+* @attributs.axe = string (optional)
+*/
+SlidingElement.prototype.slideIn = function(translation, attributs)
+{
+	// Check if we are on the page with this class
+	if(this.parent.getAttribute('class') == 'has-sidebar')
+	{
+		this.translation = translation;
+		// Delay AND Duration passed as arguments
+		if(attributs.delay != undefined && attributs.duration != undefined)
+		{
+			this.setTransition(attributs.duration);
+			this.delay = attributs.delay;
+
+			window.setTimeout((function(){
+				this.setTranslation(translation, attributs.axe);
+			}).bind(this), this.delay);
+			return;
+		}
+		
+		// ONLY Delay passed as argument
+		else if(attributs.delay != undefined && attributs.duration == undefined)
+		{
+			window.setTimeout((function(){
+				this.setTranslation(translation, attributs.axe);
+			}).bind(this), attributs.delay);
+			return;	
+		}
+		// ONLY Duration passed as argument
+		else if(attributs.delay == undefined && attributs.duration != undefined)
+		{
+			this.setTransition(attributs.duration);
+			window.setTimeout((function(){
+				this.setTranslation(translation, attributs.axe);
+			}).bind(this), this.delay);
+			return;
+		}
+		
+		// If both Duration and Delay are not set 
+		this.setTranslation(translation);
+	}
+}
+
+SlidingElement.prototype.setTransition = function(duration)
+{
+	// Set the transition for style.css #sidebar
+	let transition = "all " + this.transformTime(duration) + "s";
+	this.DOMElement.style.transition = transition;
+	this.transition = window.getComputedStyle(this.DOMElement,null).getPropertyValue("transition");
+}
+
+SlidingElement.prototype.transformTime = function(e)
+{
+	return e/1000;
+}
+
+SlidingElement.prototype.setTranslation = function(translation, axe)
+{
+	// The axe of the translation must be as defined in style.css
+	switch (axe)
+	{
+		case undefined:
+		case 'x': 
+		// Modify the property css translateX() of transform with the parameter passed in
+		this.DOMElement.style.transform = 'translateX(' + translation + 'px)';
+		break;
+
+		case 'y':
+		// Same for translateY()
+		this.DOMElement.style.transform = 'translateY(' + translation + 'px)';
+		break;
+	}
+
+	this.DOMElement.style.position = 'relative';
+	this.position = window.getComputedStyle(this.DOMElement,null).getPropertyValue("position");
+}
