@@ -1,10 +1,10 @@
 <?php
 
-namespace MonProjet\Controller;
+namespace App\Controller;
 
 use Silex\Application;
-use MonProjet\Model\DefaultException;
-use MonProjet\Model\PortfolioModel;
+use Model\DefaultException;
+use Model\PortfolioModel;
 
 class Portfolio
 {
@@ -17,7 +17,7 @@ class Portfolio
     private function getContent()
     {
       $pf = new PortfolioModel();
-      
+
       return $pf->getAll();
     }
 }

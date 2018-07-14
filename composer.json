@@ -1,16 +1,31 @@
 {
-    "require": {
+  "name": "guilaume-sabin/mon_projet",
+  "description": "Mon premier projet en Silex",
+  "homepage": "https://github.com/guillaume-sabin/mon_projet",
+  "authors": [
+      {
+          "name": "Guillaume Sabin",
+          "email": "guillaume.sabin@gmail.com",
+          "homepage": "https://github.com/guilaume-sabin"
+      }
+  ],
+  "require": {
         "silex/silex": "^2.2",
         "twig/twig" : "^1.35",
         "symfony/asset": "^3.4",
         "symfony/twig-bridge": "^3.4",
-        "doctrine/dbal": "~2.2"
+        "doctrine/dbal": "~2.2",
+        "symfony/dotenv" : "^4.1"
     },
     "autoload" : {
         "psr-4" : {
-			"MonProjet\\Classe\\" : "application/classes",
-			"MonProjet\\Controller\\" : "application/controllers",
-            "MonProjet\\Model\\" : "application/models"
+            "App\\": "src/"
         }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "start": "php -S 0.0.0.0:8008 -t public"
     }
 }

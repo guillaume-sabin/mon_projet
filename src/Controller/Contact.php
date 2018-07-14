@@ -1,6 +1,6 @@
 <?php
 
-namespace MonProjet\Controller;
+namespace App\Controller;
 
 use Silex\Application; // AS App;
 use MonProjet\Model\DefaultException;
