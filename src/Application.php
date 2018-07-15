@@ -2,12 +2,12 @@
 
 namespace App;
 
-use Silex\Application as SilexApp;
+use Silex\Application as SilexApplication;
 use Silex\Provider\AssetServiceProvider as AssetServiceProvider;
 use Silex\Provider\DoctrineServiceProvider as DoctrineServiceProvider;
 use Silex\Provider\TwigServiceProvider as TwigServiceProvider;
 
-class Application extends SilexApp {
+class Application extends SilexApplication {
 
     private $env;
 

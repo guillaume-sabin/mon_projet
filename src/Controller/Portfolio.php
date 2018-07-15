@@ -3,21 +3,19 @@
 namespace App\Controller;
 
 use Silex\Application;
-use Model\DefaultException;
-use Model\PortfolioModel;
+use App\Model\DefaultException;
+use App\Model\PortfolioModel;
+use Doctrine\DBAL\Connection;
 
-class Portfolio
-{
-    public function showPortfolio(Application $app)
-    {
-      $pf = $this->getContent();
+class Portfolio {
+
+    public function showPortfolio(Application $app) {
+      $pf = $this->getContent($app['db']);
       return $app['twig']->render('Portfolio.twig');
     }
 
-    private function getContent()
-    {
-      $pf = new PortfolioModel();
-
+    private function getContent(Connection $db) {
+      $pf = new PortfolioModel($db);
       return $pf->getAll();
     }
 }

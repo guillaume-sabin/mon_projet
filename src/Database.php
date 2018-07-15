@@ -2,47 +2,30 @@
 
 namespace App;
 
-use Silex\Application;
-use Silex\Provider\DoctrineServiceProvider;
+use Doctrine\DBAL\Connection;
 
-class Database{
+class Database {
 
-    // PROP
     private $db;
 
-    // METHODS
-
-    // Constructor
-    public function __construct(Application $app){
-
-        $this->db = $app;
-        $this->db->register(new Silex\Provider\DoctrineServiceProvider(), array(
-                'db.options' => array(
-                    'driver'   => 'pdo_mysql',
-                    'dbname'   => 'mon_projet',
-                    'host'     => 'localhost',
-                    'user'     => 'root',
-                    'password' => '',
-                    'charset'  => 'UTF8',
-                    'port'     => '3306'
-                ),
-        ));
+    public function __construct(Connection $conn) {
+        $this->db = $conn;
     }
 
-    public function queryAll($sql, $params = []){
+    private function prepare($sql) {
+      return $this->db->prepare($sql);
+    }
 
-        // Récupération de la requête
-        $query = $this->db->prepare($sql);
-
+    public function queryAll($sql, $params = []) {
+        // Prépare la requete
         // Execution de la requête avec les paramêtres qui doivent être envoyé sous forme de tableau
-        $query->execute($params);
-
         // Retourne LES résultatS de la requête
-        return $query->fetchAll(PDO::FETCH_ASSOC);
+        return $this->prepare($sql)
+          ->execute($params)
+          ->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function queryOne($sql, $params = []){
-
+    public function queryOne($sql, $params = []) {
         $query = $this->db->prepare($sql);
 
         $query->execute($params);
@@ -51,8 +34,7 @@ class Database{
         return $query->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function executeSql($sql, $params = []){
-
+    public function executeSql($sql, $params = []) {
         $query = $this->pdo->prepare($sql);
 
         // Envoye des données en BDD

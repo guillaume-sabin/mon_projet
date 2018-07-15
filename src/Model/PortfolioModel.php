@@ -2,23 +2,20 @@
 
 namespace App\Model;
 
-use Silex\Application;
-use Classe\Database;
+use App\Database;
+use Doctrine\DBAL\Connection;
 
-class PortfolioModel{
+class PortfolioModel {
 
     private $db;
 
-    public function __construct()
-    {
-        $this->db = new Database();
+    public function __construct(Connection $db) {
+        $this->db = new Database($db);
     }
 
-    public function getAll()
-    {
+    public function getAll() {
         $sql = 'SELECT * FROM image';
 
         return $this->db->queryAll($sql);
     }
-
 }

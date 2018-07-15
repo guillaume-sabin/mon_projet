@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use Silex\Application; // AS App;
-use MonProjet\Model\DefaultException;
+use Silex\Application;
+use App\Model\DefaultException;
 
 class Contact
 {

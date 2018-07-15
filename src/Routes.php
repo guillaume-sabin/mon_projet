@@ -2,7 +2,7 @@
 
 namespace App;
 
-use Silex\Application as App;
+use Silex\Application;
 
 class Routes {
 
@@ -12,10 +12,9 @@ class Routes {
   *
   * @param App $app
   */
-  public function __construct($app) {
+  public function __construct(Application $app) {
     $app->get('/', 'App\Controller\Home::show')->bind('home');
     $app->get('/portfolio', 'App\Controller\Portfolio::showPortfolio')->bind('portfolio');
     $app->get('/contact', 'App\Controller\Contact::showContact')->bind('contact');
   }
-
 }
