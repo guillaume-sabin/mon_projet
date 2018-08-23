@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use Silex\Application;
 use App\Model\DefaultException;
+use App\Model\ContactModel;
+use Doctrine\DBAL\Connection;
 
 class Contact
 {
@@ -11,6 +13,13 @@ class Contact
     // On devra préciser celui-ci pour le typage de l'argument
     public function showContact(Application $app)
     {
-      return $app['twig']->render('Contact.twig');
+      return $app['twig']
+      ->render('Contact.twig', array('contacts' => $this->getContent($app['db'])));
+    }
+
+    private function getContent(Connection $db) 
+    {
+      $contactModel = new ContactModel($db);
+      return $contactModel->getAll();
     }
 }

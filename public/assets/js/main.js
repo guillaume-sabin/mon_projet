@@ -8,14 +8,14 @@ $(function(){
 	*/
 	$('.header-container').parallax({imageSrc: '../img/mario.jpg'});
 
-		/*
+	/*
 	* title in
 	*/
 	$('.header-container h1').delay(200).fadeTo(800, 1);
 
 
 	/*
-	*	nav Items
+	* nav Items
 	*/
 	$('.navLink').each(function(){
 		var navItem = new SlidingText(this);
@@ -42,9 +42,14 @@ $(function(){
 	for(var i = 0; i < nodeLinks.length; i++)
 	{
 		nodeLinks[i].addEventListener('click', function(){
-			
+
 			var content = new Content('.ws-container');
-			content.getContent('portfolio.php');
+			
+			content.getContent({
+
+				url : 'portfolio.php',
+				id : this.id
+			});
 		})
 	}
 	/*

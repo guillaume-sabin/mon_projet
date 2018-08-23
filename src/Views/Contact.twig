@@ -2,5 +2,15 @@
 {% extends "Layout.twig" %}
 
 {% block main %}
-	<div id="main-container">inside contact</div>
+	<div id="main-container">
+		{% for contact in contacts %}
+			<img src="assets/img/{{ contact.photo }}" alt="photo de l'autheur" />
+			<ul>
+				<li>{{contact.firstname}}</li>
+				<li>{{contact.lastname}}</li>
+				<li>{{contact.mail}}</li>
+				<li>+33 {{contact.number}}</li>
+			</ul>
+		{% endfor %}
+	</div>
 {% endblock %}

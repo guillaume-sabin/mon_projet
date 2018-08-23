@@ -5,25 +5,11 @@
 <div id="main-container" class="has-sidebar">
 		<aside id="sidebar">
 			<ul>
-				<li>
-					<a href="#" class="ws-link">mon site 1</a>
-				</li>
-
-				<li>
-					<a href="#" class="ws-link">mon site 2</a>
-				</li>
-
-				<li>
-					<a href="#" class="ws-link">mon site 3</a>
-				</li>
-
-				<li>
-					<a href="#" class="ws-link">mon site 4</a>
-				</li>
-
-				<li>
-					<a href="#" class="ws-link">mon site 5</a>
-				</li>
+				{% for site in sites %}
+					<li>
+						<a href="#" id="{{ site.id }}" class="ws-link">{{ site.name }}</a>
+					</li>
+				{% endfor %}
 			</ul>
 		</aside>
 

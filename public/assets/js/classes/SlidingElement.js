@@ -6,6 +6,7 @@ var SlidingElement = function(e){
 	this.parent = this.DOMElement.parentNode;
 	this.transition = window.getComputedStyle(this.DOMElement,null).getPropertyValue("transition");;
 	this.position = window.getComputedStyle(this.DOMElement,null).getPropertyValue("position");
+	this.visibility = window.getComputedStyle(this.DOMElement,null).getPropertyValue("visibility");
 	this.translation = 0;
 	this.delay = 0;
 }
@@ -31,6 +32,7 @@ SlidingElement.prototype.slideIn = function(translation, attributs)
 			this.delay = attributs.delay;
 
 			window.setTimeout((function(){
+				this.showElement('visible');
 				this.setTranslation(translation, attributs.axe);
 			}).bind(this), this.delay);
 			return;
@@ -40,6 +42,7 @@ SlidingElement.prototype.slideIn = function(translation, attributs)
 		else if(attributs.delay != undefined && attributs.duration == undefined)
 		{
 			window.setTimeout((function(){
+				this.showElement('visible');
 				this.setTranslation(translation, attributs.axe);
 			}).bind(this), attributs.delay);
 			return;	
@@ -49,6 +52,7 @@ SlidingElement.prototype.slideIn = function(translation, attributs)
 		{
 			this.setTransition(attributs.duration);
 			window.setTimeout((function(){
+				this.showElement('visible');
 				this.setTranslation(translation, attributs.axe);
 			}).bind(this), this.delay);
 			return;
@@ -91,4 +95,10 @@ SlidingElement.prototype.setTranslation = function(translation, axe)
 
 	this.DOMElement.style.position = 'relative';
 	this.position = window.getComputedStyle(this.DOMElement,null).getPropertyValue("position");
+}
+
+SlidingElement.prototype.showElement = function(visibility)
+{
+	this.DOMElement.style.visibility = visibility;
+	this.visibility = visibility;
 }

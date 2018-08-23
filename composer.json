@@ -1,12 +1,12 @@
 {
   "name": "guilaume-sabin/mon_projet",
   "description": "Mon premier projet en Silex",
-  "homepage": "https://github.com/guillaume-sabin/mon_projet",
+  "homepage": "https://github.zscom/guillaume-sabin/mon_projet",
   "authors": [
       {
           "name": "Guillaume Sabin",
           "email": "guillaume.sabin@gmail.com",
-          "homepage": "https://github.com/guilaume-sabin"
+          "homepage": "https://github.com/guillaume-sabin"
       }
   ],
   "require": {

@@ -54,12 +54,12 @@ class Application extends SilexApplication {
     private function registerAssetServiceProvider() {
       $this->register(new AssetServiceProvider(), array(
           'assets.named_packages' => array(
-              'css'           => array('base_path' => '/assets/css'),
-              'images'        => array('base_path' => '/assets/img'),
-              'javascript'    => array('base_path' => '/assets/js'),
-              'js_classes'    => array('base_path' => '/assets/js/classes'),
-              'animejs'    	  => array('base_path' => '/assets/js/node_modules/animejs'),
-              'parallax'    	=> array('base_path' => '/assets/js/parallax.js-1.5.0')
+              'css'         => array('base_path' => '/assets/css'),
+              'images'      => array('base_path' => '/assets/img'),
+              'javascript'  => array('base_path' => '/assets/js'),
+              'js_classes'  => array('base_path' => '/assets/js/classes'),
+              'animejs'     => array('base_path' => '/assets/js/node_modules/animejs'),
+              'parallax'    => array('base_path' => '/assets/js/parallax.js-1.5.0')
           )
       ));
     }
