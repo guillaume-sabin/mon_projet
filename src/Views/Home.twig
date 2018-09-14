@@ -1,0 +1,17 @@
+
+{# Chargement du layout #}
+{% extends "Layout.twig" %}
+
+{# Modification du block title, en récuperant le contenu du Layout et en ajoutant le contenu entre les balises #}
+{% block title %}{{ parent() }}/Home{% endblock %}
+
+
+{% block main %}
+  <div id="main-container">
+			<article>
+				<p>Quare hoc quidem praeceptum, cuiuscumque est, ad tollendam amicitiam valet; illud potius praecipiendum fuit, ut eam diligentiam adhiberemus in amicitiis comparandis, ut ne quando amare inciperemus eum, quem aliquando odisse possemus. Quin etiam si minus felices in diligendo fuissemus, ferendum id Scipio potius quam inimicitiarum tempus cogitandum putabat.
+
+Haec igitur Epicuri non probo, inquam. </p>
+			</article>
+	</div>
+{% endblock %}

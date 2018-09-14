@@ -1,0 +1,16 @@
+{# Chargement du layout #}
+{% extends "Layout.twig" %}
+
+{% block main %}
+	<div id="main-container">
+		{% for contact in contacts %}
+			<img id="author-picture"src="assets/img/{{ contact.photo }}" alt="photo de l'autheur" />
+			<ul class="author-infos">
+				<li><i class="fas fa-user"></i> : {{contact.firstname}} {{contact.lastname}}</li>
+				<li><i class="fas fa-envelope"></i> : {{contact.mail}}</li>
+				<li><a id="linkedin" target="_blank" href="{{contact.linkedin}}">Linked<i class="fab fa-linkedin"></i></a></li>
+				<li><a id="github" target="_blank" href="{{contact.github}}">Github<i class="fab fa-github"></i></a></li>
+			</ul>
+		{% endfor %}
+	</div>
+{% endblock %}

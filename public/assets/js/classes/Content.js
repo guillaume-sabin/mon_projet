@@ -1,0 +1,57 @@
+'use strict';
+
+var Content = function()
+{
+    this.DOMElement = document.querySelector('#website');
+    this.timer = 200;
+}
+
+Content.prototype.getContent = function(data)
+{
+    var self = this;
+    $.getJSON(
+        data.url + '/' + data.id,
+        self.showContent.bind(self)
+    );
+}
+
+Content.prototype.showContent = function(jsonData)
+{  
+    const IMGLINK = 'assets/img/';
+
+    if(this.DOMElement.nodeName == 'P')
+    {
+        // Create a new container <img> and set his attribbutes
+        var newHtmlElement = document.createElement('img');
+        newHtmlElement.id = 'website';
+        newHtmlElement.src = IMGLINK + jsonData.url;
+        newHtmlElement.alt = jsonData.description;
+        newHtmlElement.dataset.wsId = jsonData.id;
+        
+        // The "#ws-container" was <p> container, no replace with <img>
+        this.DOMElement.replaceWith(newHtmlElement);
+
+        // Show the new container
+        $('#' + this.DOMElement.id).fadeTo(this.timer, 1);
+    }
+
+    // Check if the clicked link is a new one
+    else if(this.DOMElement.dataset.wsId != jsonData.id)
+    {
+        // Hide the container before setting new params
+        $('#' + this.DOMElement.id).fadeTo(this.timer, 0);
+
+        var self = this;
+
+        // Delay the container's settings
+        setTimeout(function()
+        {
+            self.DOMElement.setAttribute('src', IMGLINK + jsonData.url);
+            self.DOMElement.setAttribute('alt', jsonData.description);
+            self.DOMElement.dataset.wsId = jsonData.id;
+        }, self.timer);
+
+        // Show the container 
+        $('#' + this.DOMElement.id).fadeTo(this.timer, 1);
+    }
+}

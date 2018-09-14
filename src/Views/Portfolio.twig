@@ -1,0 +1,21 @@
+{# Chargement du layout #}
+{% extends "Layout.twig" %}
+
+{% block main %}
+<div id="main-container" class="has-sidebar">
+		<aside id="sidebar">
+			<h2>Mes réalisations</h2>
+			<ul>
+				{% for site in sites %}
+					<li id="{{ site.id }}" class="ws-link">
+						{{ site.name }}
+					</li>
+				{% endfor %}
+			</ul>
+		</aside>
+		<article id="ws-container">
+			<p id="website">Cliquez sur un des liens pour avoir un aperçu du site</p>
+		</article>
+		<button id="ws-informations"><i class="fas fa-align-right"></i> Informations</button>
+</div>
+{% endblock %}
