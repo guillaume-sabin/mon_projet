@@ -17,7 +17,8 @@ $(function(){
 	/*
 	* nav Items
 	*/
-	$('.navLink').each(function(){
+	$('.navLink').each(function()
+	{
 		var navItem = new SlidingText(this);
 		navItem.createBorder('navItem');
 		navItem.animation('.links-content');
@@ -26,7 +27,8 @@ $(function(){
 	/*
 	* sidebar : slidingElement
 	*/
-	if($('#main-container').hasClass('has-sidebar') == true){
+	if($('#main-container').hasClass('has-sidebar') == true)
+	{
 		var sidebar = new SlidingElement('#sidebar');
 		sidebar.slideIn(0, {
 			duration: 500,
@@ -36,24 +38,67 @@ $(function(){
 	}
 
 	/*
-	* sidebar : list
+	* sidebar : list and container
 	*/
 	let nodeLinks = document.querySelectorAll('.ws-link');
 	for(var i = 0; i < nodeLinks.length; i++)
 	{
-		nodeLinks[i].addEventListener('click', function(){
-
-			var content = new Content('.ws-container');
+		nodeLinks[i].addEventListener('click', function()
+		{
+			var content = new Content();
 			
 			content.getContent({
 
-				url : 'portfolio.php',
+				url : 'portfolio',
 				id : this.id
 			});
 		})
 	}
+
 	/*
 	* ws-container in
 	*/
-	$('.ws-container p').delay(1200).fadeTo(800, 1);
+	$('#website').delay(1200).fadeTo(800, 1);
+
+	/*
+	* Add listenner on #ws-informations
+	* And create/remove the container that will show description
+	*/
+	$('#ws-informations').hover(function()
+	{
+		var websiteId = document.getElementById('website').dataset.wsId;
+		
+		if(websiteId != undefined)
+		{
+			var container = new Container();
+			container.createContainer('div', 'description');
+			container.getContent({
+
+				url : 'portfolio/informations',
+				id : websiteId
+			});
+			container.showContainer('#ws-container', '#website');
+			$('#description').fadeTo(800, .7);
+		}
+		
+
+	}, function()
+	{
+		var websiteId = document.getElementById('website').dataset.wsId;
+
+		if(websiteId != undefined)
+		{
+			var delay = 800;
+			$('#description').fadeTo(delay, 0);
+
+			window.setTimeout(function()
+			{
+				var parentNode = document.getElementById('ws-container');
+				var childNode = document.getElementById('description');
+				parentNode.removeChild(childNode);
+				$('#website').removeClass('blur');
+
+			}, delay)
+		}	
+	})
 });

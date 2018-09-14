@@ -6,18 +6,11 @@ use Silex\Application;
 use App\Model\DefaultException;
 use App\Model\PortfolioModel;
 use Doctrine\DBAL\Connection;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\ParameterBag;
 
 class Portfolio {
 
-    public function showPortfolio(Application $app, Request $req = null) 
+    public function showPortfolio(Application $app) 
     {
-      if(isset($req))
-      {
-        echo json_decode($req);
-      }
-
       return $app['twig']
       ->render('Portfolio.twig', array('sites' => $this->getContent($app['db'])));
     }
@@ -26,5 +19,19 @@ class Portfolio {
     {
       $pfmodel = new PortfolioModel($db);
       return $pfmodel->getAll();
+    }
+
+    public function getPortfolio(Application $app, $id)
+    {
+      $pfmodel = new PortfolioModel($app['db']);
+      $data = $pfmodel->getOne($id);
+      return json_encode($data);
+    }
+
+    public function getWebsiteInformations(Application $app, $id)
+    {
+      $pfmodel = new PortfolioModel($app['db']);
+      $data = $pfmodel->getOneWebsiteInformations($id);
+      return json_encode($data);
     }
 }

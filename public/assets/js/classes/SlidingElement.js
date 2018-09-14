@@ -4,9 +4,9 @@ var SlidingElement = function(e){
 
 	this.DOMElement = document.querySelector(e);
 	this.parent = this.DOMElement.parentNode;
-	this.transition = window.getComputedStyle(this.DOMElement,null).getPropertyValue("transition");;
-	this.position = window.getComputedStyle(this.DOMElement,null).getPropertyValue("position");
-	this.visibility = window.getComputedStyle(this.DOMElement,null).getPropertyValue("visibility");
+	this.transition = getComputedStyle(this.DOMElement,null).getPropertyValue("transition");;
+	this.position = getComputedStyle(this.DOMElement,null).getPropertyValue("position");
+	this.visibility = getComputedStyle(this.DOMElement,null).getPropertyValue("visibility");
 	this.translation = 0;
 	this.delay = 0;
 }
@@ -24,6 +24,9 @@ SlidingElement.prototype.slideIn = function(translation, attributs)
 	// Check if we are on the page with this class
 	if(this.parent.getAttribute('class') == 'has-sidebar')
 	{
+		// Change the value of the style element 'align-items' to 'stretch' (then the sidebar as the same height as the Content)
+		this.parent.style.alignItems = 'stretch';
+
 		this.translation = translation;
 		// Delay AND Duration passed as arguments
 		if(attributs.delay != undefined && attributs.duration != undefined)
@@ -31,7 +34,7 @@ SlidingElement.prototype.slideIn = function(translation, attributs)
 			this.setTransition(attributs.duration);
 			this.delay = attributs.delay;
 
-			window.setTimeout((function(){
+			setTimeout((function(){
 				this.showElement('visible');
 				this.setTranslation(translation, attributs.axe);
 			}).bind(this), this.delay);
@@ -41,7 +44,7 @@ SlidingElement.prototype.slideIn = function(translation, attributs)
 		// ONLY Delay passed as argument
 		else if(attributs.delay != undefined && attributs.duration == undefined)
 		{
-			window.setTimeout((function(){
+			setTimeout((function(){
 				this.showElement('visible');
 				this.setTranslation(translation, attributs.axe);
 			}).bind(this), attributs.delay);
@@ -51,7 +54,7 @@ SlidingElement.prototype.slideIn = function(translation, attributs)
 		else if(attributs.delay == undefined && attributs.duration != undefined)
 		{
 			this.setTransition(attributs.duration);
-			window.setTimeout((function(){
+			setTimeout((function(){
 				this.showElement('visible');
 				this.setTranslation(translation, attributs.axe);
 			}).bind(this), this.delay);
@@ -68,7 +71,7 @@ SlidingElement.prototype.setTransition = function(duration)
 	// Set the transition for style.css #sidebar
 	let transition = "all " + this.transformTime(duration) + "s";
 	this.DOMElement.style.transition = transition;
-	this.transition = window.getComputedStyle(this.DOMElement,null).getPropertyValue("transition");
+	this.transition = getComputedStyle(this.DOMElement,null).getPropertyValue("transition");
 }
 
 SlidingElement.prototype.transformTime = function(e)
@@ -94,7 +97,7 @@ SlidingElement.prototype.setTranslation = function(translation, axe)
 	}
 
 	this.DOMElement.style.position = 'relative';
-	this.position = window.getComputedStyle(this.DOMElement,null).getPropertyValue("position");
+	this.position = getComputedStyle(this.DOMElement,null).getPropertyValue("position");
 }
 
 SlidingElement.prototype.showElement = function(visibility)

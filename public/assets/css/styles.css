@@ -35,7 +35,8 @@ html
 .header-container, #main-container, #footer-container
 {
     margin:0 auto;
-    text-align:center;
+	text-align:center;
+	font-family: 'Roboto', sans-serif;
 }
 
 
@@ -72,16 +73,17 @@ header
 	margin-bottom: 100px;
 	margin-left:10px;
 	color:white;
-  	font-family:'Poppins', sans-serif;
+	font-family: 'VT323', monospace;
   	font-size:22px;
 	text-align:left;
 }
 
 
-.last-name
+.job
 {
 	font-style:italic;
 	text-transform:uppercase;
+	font-size: 30px;
 	opacity:.7;
 }
 
@@ -92,7 +94,7 @@ header
     flex-direction:row;
     justify-content:space-around;
     align-items:flex-end;
-		background:rgba(255, 255, 255, .2);
+	background:rgba(255, 255, 255, .2);
 }
 
 
@@ -129,7 +131,7 @@ header
     font-family:'Font Awesome\ 5 Free';
     font-weight:900;
     font-size:14px;
-		margin-right:5px;
+	margin-right:5px;
     text-decoration:none;
 }
 
@@ -137,7 +139,7 @@ header
 .navLink:hover
 {
     text-shadow:0 0 1px #FFF;
-		background:rgba(0, 0, 0, .2);
+	background:rgba(0, 0, 0, .2);
 }
 
 
@@ -186,7 +188,7 @@ main
 	margin:0;
 }
 
-#main-container img
+#author-picture
 {
 	width:140px;
 	margin-top:20px;
@@ -202,26 +204,33 @@ main
 
 #main-container li
 {
-	margin-bottom:5px;
+	margin-bottom:7px;
+	transition:all .5s;
 }
 
+#main-container li:hover
+{
+	color:#0049a5;
+}
 #main-container a
 {
 	text-decoration:none;
 	color:white;
 }
 
-#main-container article
+#ws-container
 {
 	margin-top:20px;
 	margin-bottom:20px;
 	text-align:center;
+	background-color: white;
 }
 
 
 #sidebar
 {
-	background:#29261f;
+	color:white;
+	background-color: #0b1013;
 	box-shadow:10px 3px 20px 0px rgba(0,0,0,0.75);
 	width: 100%;
 	text-align:center;
@@ -247,11 +256,46 @@ main
 	margin-bottom:0;
 }
 
-.ws-container
+#website
 {
 	text-align:center;
+	font-family: 'VT323', monospace;
 }
 
+#main-container #linkedin
+{
+	color:#0049a5;
+	font-size:20px;
+}
+
+.fa-envelope
+{
+	color:#D54B3D;
+}
+
+.fa-user
+{
+	color:#0b1013;	
+}
+
+#ws-informations
+{
+	position:absolute;
+	top:40px;
+	right:40px;
+	padding:10px 20px;
+	border-radius:3px;
+	background: #0049a5;
+	color:white;
+	border:none;
+	transition: all .2s;
+}
+
+#ws-informations:hover
+{	
+	background: #0073ff;
+	box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.75);
+}
 /*
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
    __                _
@@ -266,15 +310,16 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 #footer-container
 {
-	border-top:solid 1px black;
-	background:white;
+	background-color:#0b1013;
 	padding:30px 0;
 	z-index:100;
+	color:white;
 }
 
 
 #footer-container span
 {
+	color:white;
 	font-style:italic;
 	opacity:.7;
 	font-size:12px;
@@ -303,8 +348,8 @@ _________   ________  ______
     */
 		.header-container h1
 		{
-				font-size:30px;
-				margin-left:50px;
+			font-size:30px;
+			margin-left:50px;
 		}
 
 		.links-content
@@ -329,10 +374,13 @@ _________   ________  ______
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     */
-	#main-container img
+	#author-picture
 	{
 		width:240px;
-		margin-bottom:20px;
+		margin-bottom:40px;
+		margin-top:40px;
+		margin-left:50px;
+		border: solid 1px #0b1013;
 	}
 	
 	#main-container ul
@@ -400,7 +448,7 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 		.header-container h1
 		{
-			font-size:40px;
+			font-size:60px;
 			margin-left:50px;
 			margin-bottom:150px;
 			opacity:0;
@@ -434,7 +482,6 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 		{
 			text-align:center;
 			position:relative;
-			font-family:'Oswald', sans-serif;
 			width:10%;
 			margin:0 80px;
 			margin-bottom:5px;
@@ -480,6 +527,14 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 			margin-top:0;
 		}
 
+		#ws-container
+		{
+			background-color:white;
+			width:85%;
+			margin:0;
+			align-self:center;
+			z-index: -50;
+		}
 
 		#sidebar
 		{
@@ -490,16 +545,28 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 			width:15%;
 		}
 
+		h2
+		{
+			padding-top:60px;
+			margin-top:0;
+			font-size:30px;
+			font-family: 'VT323', monospace;
+			border-left:5px solid white;
+		}
 
 		#sidebar ul
 		{
-			padding:51px;
+			padding-top:20px;
+			padding-right:50px;
+			padding-bottom:50px;
+			text-align: right;
 		}
 
 
 		#sidebar li
 		{
 			margin-bottom:35px;
+			cursor: pointer;
 			list-style-type:none;
 		}
 
@@ -510,27 +577,58 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 		}
 
 
-		#sidebar a
-		{
-			text-decoration:none;
-			color:white;
-		}
-
-
-		.ws-container
+		#website
 		{
 			display:flex;
 			justify-content:center;
 			align-items:center;
-			width:85%;
-			align-self:center;
+			font-size:45px;
+			color:grey;
+			opacity:0;
+			max-width:100%;
 		}
 
-
-		.ws-container p
+		.author-infos
 		{
-			font-size:30px;
+			margin-top: 55px;
+		}
+
+		#description
+		{
+			background-color:#0b1013;
+			color:white;
+			border-radius:7px;
+			width:50%;
 			opacity:0;
+			position:absolute;
+			top:100px;
+			right:50px;
+			z-index:200;
+			
+		}
+
+		.blur
+		{
+			filter: blur(5px);
+		}
+
+		#description p
+		{
+			margin:30px 15px;
+			font-size:16px;
+		}
+
+		#description span
+		{
+			font-family: 'Cookie', cursive;
+			color:#0049a5;	
+			font-size:25px;
+			opacity:1;
+		}
+
+		#description .title-description
+		{
+			font-size:45px;
 		}
     /*
     $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$

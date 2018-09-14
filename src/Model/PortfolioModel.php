@@ -20,10 +20,18 @@ class PortfolioModel {
     }
 
     public function getOne($id) {
+        $sql = 'SELECT `id`, `url`, `description`, `name` 
+                FROM `website` 
+                WHERE `id` = '.$id;
+
+        return $this->db->queryOne($sql);
+    }
+
+    public function getOneWebsiteInformations($id) {
         $sql = 'SELECT * 
                 FROM `website` 
-                WHERE `id` = ?';
+                WHERE `id` = '.$id;
 
-        return $this->db->queryOne($sql, [$id]);
+        return $this->db->queryOne($sql);
     }
 }

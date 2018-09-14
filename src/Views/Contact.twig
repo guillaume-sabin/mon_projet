@@ -4,12 +4,11 @@
 {% block main %}
 	<div id="main-container">
 		{% for contact in contacts %}
-			<img src="assets/img/{{ contact.photo }}" alt="photo de l'autheur" />
-			<ul>
-				<li>{{contact.firstname}}</li>
-				<li>{{contact.lastname}}</li>
-				<li>{{contact.mail}}</li>
-				<li>+33 {{contact.number}}</li>
+			<img id="author-picture"src="assets/img/{{ contact.photo }}" alt="photo de l'autheur" />
+			<ul class="author-infos">
+				<li><i class="fas fa-user"></i> : {{contact.firstname}} {{contact.lastname}}</li>
+				<li><i class="fas fa-envelope"></i> : {{contact.mail}}</li>
+				<li><a id="linkedin" target="_blank" href="{{contact.linkedin}}">Linked<i class="fab fa-linkedin"></i></a></li>
 			</ul>
 		{% endfor %}
 	</div>
