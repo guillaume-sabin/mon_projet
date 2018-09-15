@@ -64,6 +64,49 @@ $(function(){
 	* Add listenner on #ws-informations
 	* And create/remove the container that will show description
 	*/
+	document.getElementById('ws-informations').addEventListener('click', function()
+	{
+		var websiteId = document.getElementById('website').dataset.wsId;
+		
+		if(websiteId != undefined)
+		{
+			var delay = 800;
+			var container = new Container();
+			container.createContainer('div', 'description');
+			container.getContent({
+
+				url : 'portfolio/informations',
+				id : websiteId
+			});
+			container.showContainer('#ws-container', '#website');
+			$('#description').fadeTo(delay, .8);
+		}
+
+		window.setTimeout(function()
+		{
+
+			document.getElementById('close-tab').addEventListener('click', function()
+			{
+				var websiteId = document.getElementById('website').dataset.wsId;
+
+				if(websiteId != undefined)
+				{
+					$('#description').fadeTo(delay, 0);
+
+					window.setTimeout(function()
+					{
+						var parentNode = document.getElementById('ws-container');
+						var childNode = document.getElementById('description');
+						parentNode.removeChild(childNode);
+						$('#website').removeClass('blur');
+
+					}, delay)
+				}	
+			});
+		}, delay);
+	});
+
+/*
 	$('#ws-informations').hover(function()
 	{
 		var websiteId = document.getElementById('website').dataset.wsId;
@@ -78,7 +121,7 @@ $(function(){
 				id : websiteId
 			});
 			container.showContainer('#ws-container', '#website');
-			$('#description').fadeTo(800, .7);
+			$('#description').fadeTo(800, .8);
 		}
 		
 
@@ -100,5 +143,5 @@ $(function(){
 
 			}, delay)
 		}	
-	})
+	})*/
 });
