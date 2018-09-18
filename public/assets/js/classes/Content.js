@@ -21,7 +21,7 @@ Content.prototype.showContent = function(jsonData)
 
     if(this.DOMElement.nodeName == 'P')
     {
-        // Create a new container <img> and set his attribbutes
+        // Create a new container <img> and set his attributes
         var newHtmlElement = document.createElement('img');
         newHtmlElement.id = 'website';
         newHtmlElement.src = IMGLINK + jsonData.url;
@@ -33,6 +33,7 @@ Content.prototype.showContent = function(jsonData)
 
         // Show the new container
         $('#' + this.DOMElement.id).fadeTo(this.timer, 1);
+        document.getElementById('ws-container').style.boxShadow = "inset 0px 0px 20px 6px rgba(0,0,0,0.75)";
     }
 
     // Check if the clicked link is a new one
@@ -53,5 +54,6 @@ Content.prototype.showContent = function(jsonData)
 
         // Show the container 
         $('#' + this.DOMElement.id).fadeTo(this.timer, 1);
+        document.getElementById('ws-container').style.boxShadow = "inset 0px 0px 20px 6px rgba(0,0,0,0.75)";
     }
 }

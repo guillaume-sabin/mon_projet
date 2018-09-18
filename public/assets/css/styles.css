@@ -54,7 +54,6 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 header
 {
     /*background: linear-gradient(135deg, #45484d 0%,#000000 100%);*/
-    box-shadow:0px 10px 20px 0px rgba(0,0,0,0.75);
     z-index:100;
 }
 
@@ -62,6 +61,7 @@ header
 .header-container
 {
 	background:transparent;
+	background: no-repeat center url("../img/sonic_tete.jpg");
 }
 
 
@@ -223,7 +223,11 @@ main
 	margin-top:20px;
 	margin-bottom:20px;
 	text-align:center;
-	background-color: white;
+}
+
+.ws-container-charged
+{
+	background-color:white;
 }
 
 
@@ -231,7 +235,7 @@ main
 {
 	color:white;
 	background-color: #0b1013;
-	box-shadow:10px 3px 20px 0px rgba(0,0,0,0.75);
+	/*box-shadow:10px 3px 20px 0px rgba(0,0,0,0.75);*/
 	width: 100%;
 	text-align:center;
 }
@@ -260,6 +264,9 @@ main
 {
 	text-align:center;
 	font-family: 'VT323', monospace;
+	max-width:100%;
+	position:sticky;
+    z-index:-10;
 }
 
 #main-container #linkedin
@@ -302,6 +309,7 @@ main
 	background: #0073ff;
 	box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.75);
 }
+
 /*
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
    __                _
@@ -535,10 +543,12 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 		#ws-container
 		{
-			background-color:white;
 			width:85%;
 			margin:0;
-			align-self:center;
+			position:relative;
+			display:flex;
+			flex-direction:column;
+			justify-content:center;
 		}
 
 		#sidebar
@@ -584,13 +594,14 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 		#website
 		{
+			/*
 			display:flex;
 			justify-content:center;
 			align-items:center;
+			*/
 			font-size:45px;
 			color:grey;
 			opacity:0;
-			max-width:100%;
 		}
 
 		.author-infos

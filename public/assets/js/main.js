@@ -6,7 +6,7 @@ $(function(){
 	/*
 	* header parallax
 	*/
-	$('.header-container').parallax({imageSrc: '../img/mario.jpg'});
+	//$('.header-container').parallax({imageSrc: '../img/mario.jpg'});
 
 	/*
 	* title in
@@ -58,7 +58,7 @@ $(function(){
 	/*
 	* ws-container in
 	*/
-	$('#website').delay(1200).fadeTo(800, 1);
+	$('#website').delay(1200).fadeTo(1200, 1);
 
 	/*
 	* Add listenner on #ws-informations
@@ -84,7 +84,6 @@ $(function(){
 
 		window.setTimeout(function()
 		{
-
 			document.getElementById('close-tab').addEventListener('click', function()
 			{
 				var websiteId = document.getElementById('website').dataset.wsId;
