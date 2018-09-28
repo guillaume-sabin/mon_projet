@@ -45,6 +45,7 @@ $(function(){
 	{
 		nodeLinks[i].addEventListener('click', function()
 		{
+			document.getElementById('ws-informations').style.visibility = 'visible';
 			var content = new Content();
 			
 			content.getContent({
@@ -59,7 +60,6 @@ $(function(){
 	* ws-container in
 	*/
 	$('#website').delay(1200).fadeTo(1200, 1);
-
 	/*
 	* Add listenner on #ws-informations
 	* And create/remove the container that will show description
@@ -68,8 +68,9 @@ $(function(){
 	{
 		var websiteId = document.getElementById('website').dataset.wsId;
 		
-		if(websiteId != undefined)
+		if(websiteId != undefined && document.getElementById('description') === null)
 		{
+			$('#ws-informations').prop('disabled', true);
 			var delay = 800;
 			var container = new Container();
 			container.createContainer('div', 'description');
@@ -97,6 +98,7 @@ $(function(){
 						var parentNode = document.getElementById('ws-container');
 						var childNode = document.getElementById('description');
 						parentNode.removeChild(childNode);
+						$('#ws-informations').prop('disabled', false);
 						$('#website').removeClass('blur');
 
 					}, delay)
