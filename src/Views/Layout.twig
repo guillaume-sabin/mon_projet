@@ -1,12 +1,15 @@
 <!doctype html>
 <html lang="fr">
     <head>
-        <title>{% block title %}projet Guillaume{% endblock %}</title>
+        <title>{% block title %}portfolio Guillaume{% endblock %}</title>
         <meta charset="utf-8">
         <meta  name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
         <meta name="description" content="Passionné par l'informatique et le web en général j'ai fait mes premiers pas en auto-didacte pour ensuite rejoindre une formation diplomante de la 3w Academy et je suis aujourd'hui à la recherche d'un poste !" />
 
         <link rel="stylesheet" href="{{ asset('normalize.css', 'css') }}">
+        <link rel="stylesheet" href="{{ asset('portfolio.css', 'css') }}">
+        <link rel="stylesheet" href="{{ asset('timeline.css', 'css') }}">
+        <link rel="stylesheet" href="{{ asset('skill.css', 'css') }}">
         <link rel="stylesheet" href="{{ asset('styles.css', 'css') }}">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
@@ -25,6 +28,7 @@
 		<script src="{{ asset('Border.js', 'js_classes') }}"></script>
         <script src="{{ asset('Content.js', 'js_classes') }}"></script>
         <script src="{{ asset('Container.js', 'js_classes') }}"></script>
+        <script src="{{ asset('VerticalTimeline.js', 'js_classes') }}"></script>
 		<!-- Parallax jQuery -->
 		<script src="{{ asset('parallax.js', 'parallax') }}"></script>
 		<!-- main JS -->
@@ -32,23 +36,19 @@
 
     </head>
     <body>
-        <!--header starts here-->
         <header>
             {% block header %}
                 {% include "default/header_default.twig" %}
             {% endblock %}
         </header>
-        <!--header ends here / main starts here-->
         <main>
             {% block main %}
             {% endblock %}
         </main>
-        <!--main ends here / footer starts here-->
         <footer>
             {% block footer %}
                 {% include "default/footer_default.twig" %}
             {% endblock %}
         </footer>
-        <!--footer ends here-->
     </body>
 </html>

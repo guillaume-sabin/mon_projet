@@ -4,7 +4,7 @@
 {% block main %}
 	<div id="main-container">
 		{% for contact in contacts %}
-			<img id="author-picture"src="assets/img/{{ contact.photo }}" alt="photo de l'autheur" />
+			<img id="author-picture" src="assets/img/{{ contact.photo }}" alt="photo de l'autheur" />
 			<ul class="author-infos">
 				<li><i class="fas fa-user"></i> : {{contact.firstname}} {{contact.lastname}}</li>
 				<li><i class="fas fa-envelope"></i> : {{contact.mail}}</li>

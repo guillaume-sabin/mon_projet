@@ -7,11 +7,164 @@
 
 
 {% block main %}
-  <div id="main-container">
+	<div id="main-container" class="home">
+		<section class="personal-description-container">
+			<h2>A propos</h2>
 			<article>
-				<p>Quare hoc quidem praeceptum, cuiuscumque est, ad tollendam amicitiam valet; illud potius praecipiendum fuit, ut eam diligentiam adhiberemus in amicitiis comparandis, ut ne quando amare inciperemus eum, quem aliquando odisse possemus. Quin etiam si minus felices in diligendo fuissemus, ferendum id Scipio potius quam inimicitiarum tempus cogitandum putabat.
-
-Haec igitur Epicuri non probo, inquam. </p>
+				{% for contact in contacts %}
+					<img id="author-picture"src="assets/img/{{ contact.photo }}" alt="photo de l'autheur" />
+				{% endfor %}
+				<p><span class="introduction">Bonjour, je m'appelle Guillaume je suis developpeur web junior.</span><br>
+				Passionner d'informatique, de jeux vidéos et du web tout particulièrement j'ai réaliser mon rêve en faisant une reconversion dans le developpement web afin de pouvoir apporter ma petite pierre à l'édifice qu'est internet aujourd'hui.<br>
+				Ce que j'aime le plus? Avoir mon IDE ouvert et tapper du code !<br>
+				Ma formation me permet d'être polyvalent et de travailler aussi bien en back-end qu'en front-end avec l'utilisation de différentes technologies comme HTML5, CSS3, JavaScript, PHP, SQL, ainsi que de CMS comme Wordpress.<br>
+				j'aime l'idée de pouvoir constamment enrichir mes connaissances, et de partager au sein d'une nouvelle équipe cette même passion.</p>
 			</article>
+		</section>
+		
+		<section class="timeline-container js-cd-timeline">
+			<!-- experiences & formations -->
+			<h2>Experiences professionnelles</h2>
+			<div class="cd-timeline__container">
+				<article class="cd-timeline__block js-cd-block">
+					<div class="cd-timeline__img cd-timeline__img--start js-cd-img">
+						<img src="{{ asset('courage.svg', 'images') }}" alt="image courage">
+					</div> <!-- cd-timeline__img -->
+
+					<div class="cd-timeline__content js-cd-content">
+						<h3>Vendeur cycle <span class="exp-location">Decathlon, Claye-souilly</span></h3>
+						<p>Réception marchandise, montage, mise en rayon, conseil clientèle.</p>
+						<span class="cd-timeline__date">2005</span>
+					</div> <!-- cd-timeline__content -->
+				</article> <!-- cd-timeline__block -->
+
+				<article class="cd-timeline__block js-cd-block">
+					<div class="cd-timeline__img cd-timeline__img--main js-cd-img">
+						<img src="{{ asset('customer-service.svg', 'images') }}" alt="image customer">
+					</div> <!-- cd-timeline__img -->
+
+					<div class="cd-timeline__content js-cd-content">
+						<h3>Stage éléctrotechnique <span class="exp-location">Lemont and Co, Villeparisis</span></h3>
+						<p>Cablage d'armoires électriques et concéption de shémas</p>
+						<span class="cd-timeline__date">2005 - 2006</span>
+					</div> <!-- cd-timeline__content -->
+				</article> <!-- cd-timeline__block -->
+
+				<article class="cd-timeline__block js-cd-block">
+					<div class="cd-timeline__img cd-timeline__img--main js-cd-img">
+						<img src="{{ asset('customer-service.svg', 'images') }}" alt="image customer">
+					</div> <!-- cd-timeline__img -->
+
+					<div class="cd-timeline__content js-cd-content">
+						<h3>Militaire Technicien de l'Air <span class="exp-location">BA102, Dijon-Longvic</span></h3>
+						<p>Assurer le bon fonctionnement du parc informatique, déployement de logiciels intra'Air, maintenance logiciels et hardware des serveurs ainsi que des autres équipements informatique.</p>
+						<span class="cd-timeline__date">2006 - 2010</span>
+					</div> <!-- cd-timeline__content -->
+				</article> <!-- cd-timeline__block -->
+
+				<article class="cd-timeline__block js-cd-block">
+					<div class="cd-timeline__img cd-timeline__img--main js-cd-img">
+						<img src="{{ asset('customer-service.svg', 'images') }}" alt="image customer">
+					</div> <!-- cd-timeline__img -->
+
+					<div class="cd-timeline__content js-cd-content">
+						<h3>Surveillant, sauveteur aquatique <span class="exp-location">UCPA, lagny-sur-Marne</span></h3>
+						<p>Assurer la sécurité, le sauvetage et les premiers secours des pratiquants. Prévention auprès de la clientèle ainsi que des différents employés.</p>
+						<span class="cd-timeline__date">2010 - 2011</span>
+					</div> <!-- cd-timeline__content -->
+				</article> <!-- cd-timeline__block -->
+
+				<article class="cd-timeline__block js-cd-block">
+					<div class="cd-timeline__img cd-timeline__img--main js-cd-img">
+						<img src="{{ asset('customer-service.svg', 'images') }}" alt="image customer">
+					</div> <!-- cd-timeline__img -->
+
+					<div class="cd-timeline__content js-cd-content">
+						<h3>Entraineur natation <span class="exp-location">US Vaires Natation, Vaires-sur-Marne</span></h3>
+						<p>Concéption/Animation de séances et de cycles de natation sur un groupe d'école de natation et un groupe niveau régional</p>
+						<span class="cd-timeline__date">2012 - 2013</span>
+					</div> <!-- cd-timeline__content -->
+				</article> <!-- cd-timeline__block -->
+
+				<article class="cd-timeline__block js-cd-block">
+					<div class="cd-timeline__img cd-timeline__img--main js-cd-img">
+						<img src="{{ asset('customer-service.svg', 'images') }}" alt="image customer">
+					</div> <!-- cd-timeline__img -->
+
+					<div class="cd-timeline__content js-cd-content">
+						<h3>Stage Maître-Nageur-Sauveteur <span class="exp-location">UCPA, Lagny-sur-Marne</span></h3>
+						<p>Formation en alternance de mon Brevet Professionnel de la Jeunesse de l'Education Populaire et du Sport Activités Aquatique et de la Natation</p>
+						<span class="cd-timeline__date">2011 - 2013</span>
+					</div> <!-- cd-timeline__content -->
+				</article> <!-- cd-timeline__block -->
+
+				<article class="cd-timeline__block js-cd-block">
+					<div class="cd-timeline__img cd-timeline__img--main js-cd-img">
+						<img src="{{ asset('customer-service.svg', 'images') }}" alt="image customer">
+					</div> <!-- cd-timeline__img -->
+
+					<div class="cd-timeline__content js-cd-content">
+						<h3>Maître-Nageur-Sauveteur <span class="exp-location">CARILIS, Bailly-Romainvilliers</span></h3>
+						<p>Concéption/Animation de séance de natation auprés de tous les publics (scolaire, aquagym, ecole de natation, etc...), assurer la sécurité de ceux-ci. Contact, sensibilisation et renseignement de la clientèle</p>
+						<span class="cd-timeline__date">2013 - 2015</span>
+					</div> <!-- cd-timeline__content -->
+				</article> <!-- cd-timeline__block -->
+
+				<article class="cd-timeline__block js-cd-block">
+					<div class="cd-timeline__img cd-timeline__img--end js-cd-img">
+						<img src="{{ asset('route.svg', 'images') }}" alt="image route">
+					</div> <!-- cd-timeline__img -->
+
+					<div class="cd-timeline__content js-cd-content">
+						<h3>Maître-Nageur-Sauveteur <span class="exp-location">Communauté d'agglomération, Cherbourg-en-Cotentin</span></h3>
+						<p>Même si mes prérogatives restait globalement les mêmes, j'ai remplacé dans 5 établissements différents avant d'obtenir un poste dans un établissement fixe.</p>
+						<span class="cd-timeline__date">2015 - 2017</span>
+					</div> <!-- cd-timeline__content -->
+				</article> <!-- cd-timeline__block -->
+			</div>
+		</section> <!-- cd-timeline -->
+		<!-- / experiences -->
+		<!-- skills -->
+		<section class="personal-exp-container">
+			<h2>Compétences :</h2>
+			<div class="global-skill-container">
+				<article class="main-skill-container">
+				<h3>Principales :</h3>
+					<div class="skill-container">
+						<div id="html">HTML</div>
+					</div>
+					<div class="skill-container">
+						<div id="css">CSS</div>
+					</div>
+					<div class="skill-container">
+						<div id="js">JS</div>
+					</div>
+					<div class="skill-container">
+						<div id="php">PHP</div>
+					</div>
+					<div class="skill-container">
+						<div id="sql">SQL</div>
+					</div>
+				</article>
+
+				<article class="alt-skill-container">
+				<h3>Autres :</h3>
+					<ul>
+						<li>Bibliothèque JS : <span class="alt-skill-element">jQuery</span></li>
+						<li>Préprocesseur CSS : <span class="alt-skill-element">SASS</span></li>
+						<li>Moteur de template : <span class="alt-skill-element">Twig</span></li>
+						<li>Micro-framework : <span class="alt-skill-element">Silex</span></li>
+						<li>Framework : <span class="alt-skill-element">Bootstrap</span></li>
+						<li>Système de géstion de BDD : <span class="alt-skill-element">phpMyAdmin</span></li>
+						<li>Système de géstion de contenu :<span class="alt-skill-element"> Wordpress</span></li>
+						<li>Géstionnaire de dépendance: <span class="alt-skill-element">Composer</span></li>
+						<li>Logiciel de géstion de version : <span class="alt-skill-element">Git</span></li>
+						<li>Plateforme de développement Web : <span class="alt-skill-element">WAMP</span></li>
+					</ul>
+				</article>
+			</div>
+		</section>
+		</div>
+	<!-- / skills -->
 	</div>
 {% endblock %}

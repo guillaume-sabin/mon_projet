@@ -29,6 +29,7 @@ html
 *, *:before, *:after
 {
   box-sizing:inherit;
+  line-height:1.5em;
 }
 
 
@@ -37,6 +38,12 @@ html
     margin:0 auto;
 	text-align:center;
 	font-family: 'Roboto', sans-serif;
+}
+
+p, li, a
+{
+	color:#0b1013;
+	font-size:12px;
 }
 
 
@@ -54,9 +61,8 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 header
 {
     /*background: linear-gradient(135deg, #45484d 0%,#000000 100%);*/
-    z-index:100;
+	z-index:100;
 }
-
 
 .header-container
 {
@@ -172,9 +178,21 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 */
+
+/* --------------------------------
+	General values 
+----------------------------------*/
 main
 {
 	z-index:50;
+}
+
+#main-container.home
+{
+	background:#e9f0f5;
+	flex-direction:column;
+	align-items:flex-start;
+	/*padding:10px;*/
 }
 
 #main-container
@@ -195,7 +213,10 @@ main
 {
 	width:140px;
 	margin-top:20px;
-	border-radius:5px;
+	margin-bottom:20px;
+	border-radius:0.25em;
+	box-shadow: 0 3px 0 #d7e4ed;
+	border: solid 1px #0b1013;
 }
 
 #main-container ul
@@ -211,7 +232,7 @@ main
 	transition:all .5s;
 }
 
-#main-container li:hover
+#main-container.has-sidebar li:hover
 {
 	color:#0049a5;
 }
@@ -221,60 +242,53 @@ main
 	color:white;
 }
 
-#ws-container
-{
-	text-align:center;
-}
-
-.ws-container-charged
-{
-	background-color:white;
-}
-
-
-#sidebar
+.home h2
 {
 	color:white;
-	background-color: #0b1013;
-	/*box-shadow:10px 3px 20px 0px rgba(0,0,0,0.75);*/
-	width: 100%;
-	text-align:center;
+	font-family: 'VT323', monospace;
+	font-size:26px;
+	font-weight:lighter;
+	background:#0b1013;
+	padding:10px 20px;
+	padding-left:50px;
 }
 
-#sidebar h2
+.home article
 {
-	display:none;
+	padding:0 20px;
 }
 
-#sidebar ul
+.personal-description-container
+{
+	width:100%;
+}
+
+.personal-description-container h2
 {
 	margin:0;
-	padding:10px 0;
 }
 
-
-#sidebar li
+.personal-description-container p::before
 {
-	margin-bottom:15px;
-	font-size:17px;
-	list-style-type:none;
+	content:"\f27a";
+	font-family:'Font Awesome\ 5 Free';
+    font-size:30px;
+	margin-right:5px;
 }
 
-
-#sidebar li:last-of-type
+.introduction
 {
-	margin-bottom:0;
+	font-family: 'Cookie', cursive;
+	color:#0049a5;
+	font-size:25px;
 }
+/* --------------------------------
+	/ General values 
+----------------------------------*/
 
-#website
-{
-	text-align:center;
-	font-family: 'VT323', monospace;
-	max-width:100%;
-	position:sticky;
-    z-index:-10;
-}
-
+/* --------------------------------
+	Contact starts 
+----------------------------------*/
 #main-container #linkedin
 {
 	color:#0049a5;
@@ -297,43 +311,10 @@ main
 	color:#0b1013;	
 }
 
-#ws-informations
-{
-	visibility:hidden;
-	position:absolute;
-	top: 180px;
-	right: 10px;
-	padding:10px 20px;
-	border-radius:3px;
-	background: #0049a5;
-	color:white;
-	border:none;
-	transition: all .2s;
-}
+/* --------------------------------
+	Contact ends 
+----------------------------------*/
 
-
-#ws-informations:hover
-{	
-	background: #0073ff;
-	box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.75);
-}
-
-#ws-informations:disabled
-{
-	background-color:#CCCCCC;
-	color:#8C8C8C;
-}
-
-#ws-informations:disabled:hover
-{
-	background:#CCCCCC;
-	box-shadow:none;
-}
-
-#author-picture
-{
-	border: solid 1px #0b1013;
-}
 /*
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
    __                _
@@ -361,6 +342,25 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 	font-style:italic;
 	opacity:.7;
 	font-size:12px;
+}
+
+#footer-container p
+{
+	color:white;
+}
+
+#footer-container div
+{
+	opacity: .7;
+	font-size:8px;
+	text-decoration:none;
+}
+
+#footer-container a
+{
+	text-decoration:none;
+	color:white;
+	font-size:8px;
 }
 /*
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -416,15 +416,18 @@ _________   ________  ______
     (_/\/\_)(__)(__)(____)(_)\_)
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    */
-	#author-picture
-	{
-		width:240px;
-		margin-bottom:40px;
-		margin-top:40px;
-		margin-left:50px;
-	}
+	*/
 	
+	/* --------------------------------
+		 General values 
+	----------------------------------*/
+
+	p, li, a
+	{
+		color:#0b1013;
+		font-size:14px;
+	}
+
 	#main-container ul
 	{
 		font-size: 15px;
@@ -436,11 +439,40 @@ _________   ________  ______
 		font-size:15px;
 	}
 
-	#ws-informations
+	#main-container.home 
 	{
-		top:220px;
-		right:30px;
+		align-items: center;
 	}
+
+	#main-container .personal-description-container p
+	{
+		max-width:90%;
+	}
+
+	.personal-description-container p::before 
+	{
+		margin-right:8px;
+	}
+
+	.introduction 
+	{
+		font-size:30px;
+	}
+	/* --------------------------------
+		 / General values 
+	----------------------------------*/
+
+	/* --------------------------------
+		 Contact starts 
+	----------------------------------*/
+	#author-picture
+	{
+		width:240px;
+		margin:70px;
+	}
+	/* --------------------------------
+		 Contact ends 
+	----------------------------------*/
 
     /*
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -450,7 +482,11 @@ _________   ________  ______
     (__)  (_____)(_____) (__) (____)(_)\_)
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    */
+	*/
+	#footer-container div, #footer-container a
+	{
+		font-size:12px;
+	}
 
 }
 /*
@@ -487,18 +523,15 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
     $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
     */
-
 		.header-container
 		{
 			overflow:hidden;
 		}
 
-
 		.header-container nav
 		{
 			background:none;
 		}
-
 
 		.header-container h1
 		{
@@ -507,7 +540,6 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 			margin-bottom:150px;
 			opacity:0;
 		}
-
 
 		#navList
 		{
@@ -518,13 +550,11 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 		}
 
-
 		#home-link:before, #portfolio-link:before, #contact-link:before
 		{
 		    content:"";
 			margin-right:0;
 		}
-
 
 		.navLink:hover
 		{
@@ -580,142 +610,34 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 			margin-top:0;
 		}
 
-		#ws-container
+		.personal-description-container article
 		{
-			margin-top:20px;
-			margin-bottom:20px;
-			width:85%;
-			margin:0;
-			position:relative;
-			display:flex;
-			flex-direction:column;
-			justify-content:center;
-		}
-
-		#sidebar
-		{
-			visibility:hidden;
-			position:absolute;
-			transform:translateX(-200px);
-			transition:none;
-			width:15%;
-		}
-
-		#sidebar h2
-		{
-			display:block;
-			padding-top:60px;
-			margin-top:0;
-			font-size:30px;
-			font-family: 'VT323', monospace;
-			border-left:5px solid white;
-		}
-
-		#sidebar ul
-		{
-			padding-top:20px;
-			padding-right:50px;
-			padding-bottom:50px;
-			text-align: right;
-		}
-
-
-		#sidebar li
-		{
-			margin-bottom:35px;
-			cursor: pointer;
-			list-style-type:none;
-		}
-
-
-		#sidebar li:last-of-type
-		{
-			margin-bottom:0;
-		}
-
-
-		#website
-		{
-			/*
 			display:flex;
 			justify-content:center;
-			align-items:center;
-			*/
-			font-size:45px;
-			color:grey;
-			opacity:0;
 		}
 
-		.author-infos
+		.personal-description-container img
 		{
-			margin-top: 55px;
+			align-self:center;
+			margin-right:30px;
 		}
 
-		#description
+		.personal-description-container p::before 
 		{
-			background-color:#0b1013;
-			box-shadow: 10px 10px 25px 0px rgba(0,0,0,0.75);
-			color:white;
-			border-radius:7px;
-			width:50%;
-			opacity:0;
-			position:absolute;
-			top:100px;
-			right:50px;
-			z-index:50;
-			display:flex;
-			flex-direction:column;
-			justify-content:space-around;
+			margin-right:10px;
 		}
 
-		#description button
+		#main-container .personal-description-container p
 		{
-			margin:10px;
-			background:none;
-			color:white;
-			border:none;
-			align-self:flex-end;
+			margin-top:40px;
+			max-width:50%;
 		}
 
-		.blur
+		.introduction
 		{
-			filter: blur(5px);
+			font-size:32px;
 		}
 
-		#description p
-		{
-			margin:30px 15px;
-			font-size:16px;
-		}
-
-		#description span
-		{
-			font-family: 'Cookie', cursive;
-			color:#0049a5;	
-			font-size:25px;
-			opacity:1;
-		}
-
-		#description .title-description
-		{
-			font-size:45px;
-		}
-
-		#ws-informations
-		{
-			top:40px;
-			right:40px;
-		}
-
-		#ws-informations::after
-		{
-			content:"Informations";
-		}
-
-		#ws-informations i
-		{
-			margin-right:4px;
-		}
     /*
     $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
      ____  _____  _____  ____  ____  ____
@@ -725,6 +647,28 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
     $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
     */
+}
+
+@media only screen and (min-width: 1170px) 
+{
+	/*
+	   /$$     /$$   /$$$$$$$$ /$$$$$$                     
+	 /$$$$   /$$$$  |_____ $$//$$$_  $$                    
+	|_  $$  |_  $$       /$$/| $$$$\ $$  /$$$$$$  /$$   /$$
+	  | $$    | $$      /$$/ | $$ $$ $$ /$$__  $$|  $$ /$$/
+	  | $$    | $$     /$$/  | $$\ $$$$| $$  \ $$ \  $$$$/ 
+	  | $$    | $$    /$$/   | $$ \ $$$| $$  | $$  >$$  $$ 
+	 /$$$$$$ /$$$$$$ /$$/    |  $$$$$$/| $$$$$$$/ /$$/\  $$
+	|______/|______/|__/      \______/ | $$____/ |__/  \__/
+	                                   | $$                
+	                                   | $$                
+	                                   |__/                                                                 
+	*/
+
+	#main-container .personal-description-container p 
+	{
+		margin-top:65px;
+	}
 }
 /*
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
