@@ -41,16 +41,14 @@ Content.prototype.showContent = function(jsonData)
     {
         // Hide the container before setting new params
         $('#' + this.DOMElement.id).fadeTo(this.timer, 0);
-
-        var self = this;
-
+        
         // Delay the container's settings
         setTimeout(function()
         {
-            self.DOMElement.setAttribute('src', IMGLINK + jsonData.url);
-            self.DOMElement.setAttribute('alt', jsonData.description);
-            self.DOMElement.dataset.wsId = jsonData.id;
-        }, self.timer);
+            this.DOMElement.setAttribute('src', IMGLINK + jsonData.url);
+            this.DOMElement.setAttribute('alt', jsonData.description);
+            this.DOMElement.dataset.wsId = jsonData.id;
+        }, this.timer).bind(this);
 
         // Show the container 
         $('#' + this.DOMElement.id).fadeTo(this.timer, 1);

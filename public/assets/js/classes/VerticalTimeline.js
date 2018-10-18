@@ -15,7 +15,7 @@ VerticalTimeline.prototype.showBlocks = function()
         return;
     }
     var self = this;
-    for( var i = 0; i < this.blocks.length; i++) 
+    for(var i = 0; i < this.blocks.length; i++) 
     {
         (function(i)
         {
