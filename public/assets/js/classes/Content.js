@@ -1,8 +1,8 @@
 'use strict';
 
-var Content = function()
+var Content = function(tag)
 {
-    this.DOMElement = document.querySelector('#website');
+    this.DOMElement = document.querySelector(tag);
     this.timer = 200;
 }
 
@@ -16,7 +16,7 @@ Content.prototype.getContent = function(data)
 }
 
 Content.prototype.showContent = function(jsonData)
-{  
+{
     const IMGLINK = 'assets/img/';
 
     if(this.DOMElement.nodeName == 'P')
@@ -43,15 +43,14 @@ Content.prototype.showContent = function(jsonData)
         $('#' + this.DOMElement.id).fadeTo(this.timer, 0);
         
         // Delay the container's settings
-        setTimeout(function()
-        {
+        setTimeout((function(){
             this.DOMElement.setAttribute('src', IMGLINK + jsonData.url);
             this.DOMElement.setAttribute('alt', jsonData.description);
             this.DOMElement.dataset.wsId = jsonData.id;
-        }, this.timer).bind(this);
+        }).bind(this), this.timer);
 
         // Show the container 
         $('#' + this.DOMElement.id).fadeTo(this.timer, 1);
         document.getElementById('ws-container').style.boxShadow = "inset 0px 0px 20px 6px rgba(0,0,0,0.75)";
-    }
+    }     
 }

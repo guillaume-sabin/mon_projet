@@ -219,13 +219,6 @@ main
 	border: solid 1px #0b1013;
 }
 
-#main-container ul
-{
-	list-style-type:none;
-	padding-left:10px;
-	font-size: 13px;
-}
-
 #main-container li
 {
 	margin-bottom:7px;

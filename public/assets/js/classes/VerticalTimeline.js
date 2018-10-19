@@ -10,23 +10,21 @@ var VerticalTimeline = function(element)
 
 VerticalTimeline.prototype.showBlocks = function() 
 {
-    if ( ! "classList" in document.documentElement ) 
+    if (! "classList" in document.documentElement) 
     {
         return;
     }
-    var self = this;
+
     for(var i = 0; i < this.blocks.length; i++) 
     {
-        (function(i)
+        if(this.contents[i].classList.contains("cd-is-hidden") && this.blocks[i].getBoundingClientRect().top <= window.innerHeight*this.offset) 
         {
-            if( self.contents[i].classList.contains("cd-is-hidden") && self.blocks[i].getBoundingClientRect().top <= window.innerHeight*self.offset ) {
-                // add bounce-in animation
-                self.images[i].classList.add("cd-timeline__img--bounce-in");
-                self.contents[i].classList.add("cd-timeline__content--bounce-in");
-                self.images[i].classList.remove("cd-is-hidden");
-                self.contents[i].classList.remove("cd-is-hidden");
-            }
-        })(i);
+            // add bounce-in animation
+            this.images[i].classList.add("cd-timeline__img--bounce-in");
+            this.contents[i].classList.add("cd-timeline__content--bounce-in");
+            this.images[i].classList.remove("cd-is-hidden");
+            this.contents[i].classList.remove("cd-is-hidden");
+        }
     }
 };
 
@@ -34,20 +32,17 @@ VerticalTimeline.prototype.showBlocks = function()
 VerticalTimeline.prototype.hideBlocks = function() 
 {
     //hide timeline blocks which are outside the viewport
-    if ( !"classList" in document.documentElement ) 
+    if (!"classList" in document.documentElement) 
     {
         return;
     }
-    var self = this;
-    for( var i = 0; i < this.blocks.length; i++) 
+
+    for(var i = 0; i < this.blocks.length; i++) 
     {
-        (function(i)
+        if(this.blocks[i].getBoundingClientRect().top > window.innerHeight*this.offset) 
         {
-            if( self.blocks[i].getBoundingClientRect().top > window.innerHeight*self.offset ) {
-                self.images[i].classList.add("cd-is-hidden"); 
-                self.contents[i].classList.add("cd-is-hidden"); 
-            }
-        })(i);
+            this.images[i].classList.add("cd-is-hidden"); 
+            this.contents[i].classList.add("cd-is-hidden"); 
+        }
     }
-    
 };

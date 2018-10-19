@@ -13,14 +13,9 @@
 #sidebar
 {
 	color:white;
-	background-color: #0b1013;
+	background-color:#0b1013;
 	width: 100%;
 	text-align:center;
-}
-
-#sidebar h2
-{
-	display:none;
 }
 
 #sidebar ul
@@ -38,10 +33,55 @@
 	color:white;
 }
 
+#sidebar h2
+{
+	margin:0;
+	padding-top:20px;
+	padding-bottom:20px;
+	font-family:'VT323', monospace;
+	background:#e9f0f5;
+	color:#0b1013;
+}
 
 #sidebar li:last-of-type
 {
 	margin-bottom:0;
+}
+
+.ws-link img
+{
+	width:80%;
+	border-radius:2px;
+}
+
+.title-mobile
+{
+	color:#0049a5;
+	font-family:'Cookie', cursive;
+	font-weight:lighter;
+	font-size:40px;
+	margin:10px;
+}
+
+#main-container .ws-link p
+{
+	color:white;
+	margin:10px 20px;
+}
+
+#main-container .ws-link p:last-of-type
+{
+	margin-bottom:50px;
+	padding-bottom:20px;
+	border-bottom:1px solid #e9f0f5;
+}
+
+#main-container .ws-link p span
+{
+	color:#0049a5;
+	margin:10px;
+	font-family:'Cookie', cursive;
+	font-size:20px;
 }
 
 #website
@@ -130,10 +170,13 @@
 
 		#sidebar h2
 		{
+			padding-left:10px;
 			display:block;
 			padding-top:60px;
 			margin-top:0;
 			font-size:30px;
+			background:#0b1013;
+			color:white;
 			font-family: 'VT323', monospace;
 			border-left:5px solid white;
 		}

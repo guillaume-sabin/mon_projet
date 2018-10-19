@@ -7,8 +7,8 @@
 			<h2>Mes réalisations</h2>
 			<ul>
 				{% for site in sites %}
-					<li id="{{ site.id }}" class="ws-link">
-						{{ site.name }}
+					<li id="site-{{ site.id }}" class="ws-link">
+						<h3>{{ site.name }}</h3>
 					</li>
 				{% endfor %}
 			</ul>
