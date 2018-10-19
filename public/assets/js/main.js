@@ -4,11 +4,6 @@
 $(function(){
 
 	/*
-	* header parallax
-	*/
-	//$('.header-container').parallax({imageSrc: '../img/mario.jpg'});
-
-	/*
 	* title in
 	*/
 	$('.header-container h1').delay(200).fadeTo(800, 1);
@@ -29,18 +24,10 @@ $(function(){
 	*/
 	if($('#main-container').hasClass('has-sidebar') == true)
 	{
-		/*
-		* sidebar : slidingElement
-		*/
-		var sidebar = new SlidingElement('#sidebar');
-		sidebar.slideIn(0, {
-			duration: 500,
-			delay: 1000,
-			axe: 'y'
-		}); 
+		
 		
 		/*
-		* sidebar : list and container
+		* sidebar : list and container(s)
 		*/
 		let nodeLinks = document.querySelectorAll('.ws-link');
 
@@ -70,6 +57,16 @@ $(function(){
 		}
 
 		else{
+
+			/*
+			* sidebar : slidingElement
+			*/
+			var sidebar = new SlidingElement('#sidebar');
+			sidebar.slideIn(0, {
+				duration: 500,
+				delay: 1000,
+				axe: 'y'
+			}); 
 
 			setTimeout(function(){
 
