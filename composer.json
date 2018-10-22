@@ -19,7 +19,7 @@
     },
     "require-dev": {
         "heroku/heroku-buildpack-php": "*"
-      }
+    },
     "autoload" : {
         "psr-4" : {
             "App\\": "src/"
