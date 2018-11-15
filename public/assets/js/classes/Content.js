@@ -10,7 +10,7 @@ Content.prototype.getContent = function(data)
 {
     console.log(data);
     var self = this;
-    console.log(self);
+    console.log(self.showContent);
     $.getJSON(
         data.url, //+ '/' + data.id,
         self.showContent.bind(self)
