@@ -2,15 +2,15 @@
 
 namespace App\Model;
 
-use App\Database;
+use Silex\Application; // use App\Database;
 use Doctrine\DBAL\Connection;
 
 class PortfolioModel {
 
     private $db;
 
-    public function __construct(Connection $db) {
-        $this->db = new Database($db);
+    public function __construct(Application $app) {
+        $this->db = $app['db']; // new Database($db);
     }
 
     public function getAll() {
@@ -22,9 +22,9 @@ class PortfolioModel {
     public function getOne($id) {
         $sql = 'SELECT `id`, `url`, `description`, `name` 
                 FROM `website` 
-                WHERE `id` = '.$id;
+                WHERE `id` = ?';
 
-        return $this->db->queryOne($sql);
+        return $this->db->fetchAssoc($sql, array((int) $id)); // ->queryOne($sql);
     }
 
     public function getOneWebsiteInformations($id) {
