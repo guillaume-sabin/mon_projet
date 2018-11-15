@@ -17,7 +17,7 @@ Content.prototype.getContent = function(data)
     );
     */
     $.ajax(
-        url: data.url
+        url: data.url,
         {type: GET,
             success: self.showContent.bind(self),
             error: function(xhr, ajaxSettings, thrownError){
