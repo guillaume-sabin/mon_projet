@@ -24,7 +24,7 @@ class Portfolio {
     public function getPortfolio(Application $app, $id)
     {
       $pfmodel = new PortfolioModel($app['db']);
-      $data = $pfmodel->getOne($id);
+      $data = $pfmodel->getOne(1);
       return json_encode($data);
     }
 
