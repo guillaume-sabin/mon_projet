@@ -16,7 +16,7 @@ class PortfolioModel {
     public function getAll() {
         $sql = 'SELECT * FROM website';
 
-        return $this->db->queryAll($sql);
+        return $this->db->fetchAssoc($sql);
     }
 
     public function getOne($id) {
@@ -30,8 +30,8 @@ class PortfolioModel {
     public function getOneWebsiteInformations($id) {
         $sql = 'SELECT * 
                 FROM `website` 
-                WHERE `id` = '.$id;
+                WHERE `id` = ?';
 
-        return $this->db->queryOne($sql);
+        return $this->db->fetchAssoc($sql, array((int) $id));
     }
 }
