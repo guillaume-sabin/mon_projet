@@ -11,7 +11,7 @@ Content.prototype.getContent = function(data)
     console.log(data);
     var self = this;
     $.getJSON(
-        data.url + '/' + data.id,
+        data.url, //+ '/' + data.id,
         self.showContent.bind(self)
     );
 }
