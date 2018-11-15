@@ -19,7 +19,7 @@ Content.prototype.getContent = function(data)
 Content.prototype.showContent = function(jsonData)
 {
     const IMGLINK = 'assets/img/';
-    console.log(jsonData);
+    console.log('inside showContent method');
     if(this.DOMElement.nodeName == 'P')
     {
         // Create a new container <img> and set his attributes
