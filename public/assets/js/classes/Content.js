@@ -10,7 +10,7 @@ Content.prototype.getContent = function(data)
 {
     var self = this;
     $.getJSON(
-        data.url + '/' + data.id,
+        data.url, // + '/' + data.id,
         function(callback){
             console.log(callback);
         }
