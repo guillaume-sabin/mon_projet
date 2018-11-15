@@ -8,7 +8,7 @@ var Content = function(tag)
 
 Content.prototype.getContent = function(data)
 {
-    console.log('inside ajax request');
+    console.log(data);
     var self = this;
     $.getJSON(
         data.url + '/' + data.id,
