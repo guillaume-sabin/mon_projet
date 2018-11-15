@@ -2,36 +2,36 @@
 
 namespace App\Model;
 
-use Silex\Application; // use App\Database;
+use App\Database;
 use Doctrine\DBAL\Connection;
 
 class PortfolioModel {
 
     private $db;
 
-    public function __construct(Application $app) {
-        $this->db = $app['db']; // new Database($db);
+    public function __construct(Connection $db) {
+        $this->db = new Database($db);
     }
 
     public function getAll() {
         $sql = 'SELECT * FROM website';
 
-        return $this->db->fetchAssoc($sql);
+        return $this->db->queryAll($sql);
     }
 
     public function getOne($id) {
         $sql = 'SELECT `id`, `url`, `description`, `name` 
                 FROM `website` 
-                WHERE `id` = ?';
+                WHERE `id` = '.$id;
 
-        return $this->db->fetchAssoc($sql, array((int) $id)); // ->queryOne($sql);
+        return $this->db->queryOne($sql);
     }
 
     public function getOneWebsiteInformations($id) {
         $sql = 'SELECT * 
                 FROM `website` 
-                WHERE `id` = ?';
+                WHERE `id` = '.$id;
 
-        return $this->db->fetchAssoc($sql, array((int) $id));
+        return $this->db->queryOne($sql);
     }
 }
