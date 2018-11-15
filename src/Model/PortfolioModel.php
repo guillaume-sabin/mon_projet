@@ -12,7 +12,6 @@ class PortfolioModel {
 
     public function __construct(Connection $conn) {
         $this->db = new Database($conn);
-        $this->queryBuilder = $conn->createQueryBuilder();
     }
 
     public function getAll() {
@@ -22,23 +21,18 @@ class PortfolioModel {
     }
 
     public function getOne($id) {
-        $sql = $this->queryBuilder->select('id', 'url', 'descriptio', 'name')
-                                ->from('website')
-                                ->where('id = ?')
-                                ->setParameter(0, $id)
-        /*
         $sql = 'SELECT `id`, `url`, `description`, `name` 
                 FROM `website` 
-                WHERE `id` = '.$id;
-        */
-        return $this->db->queryOne($sql);
+                WHERE `id` = ?';
+
+        return $this->db->queryOne($sql, $id);
     }
 
     public function getOneWebsiteInformations($id) {
         $sql = 'SELECT * 
                 FROM `website` 
-                WHERE `id` = '.$id;
+                WHERE `id` = ?';
 
-        return $this->db->queryOne($sql);
+        return $this->db->queryOne($sql, $id);
     }
 }
