@@ -9,11 +9,10 @@ var Content = function(tag)
 Content.prototype.getContent = function(data)
 {
     var self = this;
+    console.log(self.showContent);
     $.getJSON(
-        data.url, // + '/' + data.id,
-        function(callback){
-            console.log(callback);
-        }
+        data.url + '/' + data.id,
+        self.showContent.bind(self)
     );
 }
 

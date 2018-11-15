@@ -58,8 +58,7 @@ class Application extends SilexApplication {
               'images'      => array('base_path' => '/assets/img'),
               'javascript'  => array('base_path' => '/assets/js'),
               'js_classes'  => array('base_path' => '/assets/js/classes'),
-              'animejs'     => array('base_path' => '/assets/js/node_modules/animejs'),
-              'parallax'    => array('base_path' => '/assets/js/parallax.js-1.5.0')
+              'animejs'     => array('base_path' => '/assets/js/node_modules/animejs')
           )
       ));
     }
