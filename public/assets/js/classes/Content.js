@@ -13,7 +13,9 @@ Content.prototype.getContent = function(data)
     console.log(self.showContent);
     $.getJSON(
         data.url + '/' + data.id,
-        self.showContent().bind(self)
+        function(callback){
+            console.log(callback);
+        }
     );
 }
 
