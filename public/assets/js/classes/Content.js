@@ -10,20 +10,11 @@ Content.prototype.getContent = function(data)
 {
     console.log(data);
     var self = this;
-    /*
+    
     $.getJSON(
         data.url, //+ '/' + data.id,
         self.showContent.bind(self)
     );
-    */
-    $.ajax(
-        url: data.url,
-        {type: GET,
-            success: self.showContent.bind(self),
-            error: function(xhr, ajaxSettings, thrownError){
-                console.log(chr.responseText);
-        }}
-        )
 }
 
 Content.prototype.showContent = function(jsonData)
