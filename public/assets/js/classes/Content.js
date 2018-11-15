@@ -8,9 +8,7 @@ var Content = function(tag)
 
 Content.prototype.getContent = function(data)
 {
-    console.log(data);
     var self = this;
-    console.log(self.showContent);
     $.getJSON(
         data.url + '/' + data.id,
         function(callback){
