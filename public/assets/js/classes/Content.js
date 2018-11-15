@@ -8,6 +8,7 @@ var Content = function(tag)
 
 Content.prototype.getContent = function(data)
 {
+    console.log('inside ajax request');
     var self = this;
     $.getJSON(
         data.url + '/' + data.id,
@@ -18,7 +19,7 @@ Content.prototype.getContent = function(data)
 Content.prototype.showContent = function(jsonData)
 {
     const IMGLINK = 'assets/img/';
-
+    console.log(jsonData);
     if(this.DOMElement.nodeName == 'P')
     {
         // Create a new container <img> and set his attributes
