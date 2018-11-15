@@ -16,14 +16,14 @@ Content.prototype.getContent = function(data)
         self.showContent.bind(self)
     );
     */
-    $.ajax(
+    $.ajax({
         type: GET,
         url: data.url,
         success: self.showContent.bind(self),
-        error: function(xhr, ajaxOptions, thrownError){
+        error: function(xhr, ajaxSettings, thrownError){
             console.log(chr.responseText);
         }
-    )
+    })
 }
 
 Content.prototype.showContent = function(jsonData)
