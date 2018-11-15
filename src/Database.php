@@ -2,6 +2,7 @@
 
 namespace App;
 
+//use Silex\Application;
 use Doctrine\DBAL\Connection;
 
 class Database {

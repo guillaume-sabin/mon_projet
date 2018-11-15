@@ -8,9 +8,11 @@ use Doctrine\DBAL\Connection;
 class PortfolioModel {
 
     private $db;
+    private $queryBuilder;
 
-    public function __construct(Connection $db) {
-        $this->db = new Database($db);
+    public function __construct(Connection $conn) {
+        $this->db = new Database($conn);
+        $this->queryBuilder = $conn->createQueryBuilder();
     }
 
     public function getAll() {
@@ -20,10 +22,15 @@ class PortfolioModel {
     }
 
     public function getOne($id) {
+        $sql = $this->queryBuilder->select('id', 'url', 'descriptio', 'name')
+                                ->from('website')
+                                ->where('id = ?')
+                                ->setParameter(0, $id)
+        /*
         $sql = 'SELECT `id`, `url`, `description`, `name` 
                 FROM `website` 
                 WHERE `id` = '.$id;
-
+        */
         return $this->db->queryOne($sql);
     }
 
