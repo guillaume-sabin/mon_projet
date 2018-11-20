@@ -24,8 +24,6 @@ $(function(){
 	*/
 	if($('#main-container').hasClass('has-sidebar') == true)
 	{
-		
-		
 		/*
 		* sidebar : list and container(s)
 		*/
