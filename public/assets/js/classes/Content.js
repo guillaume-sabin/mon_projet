@@ -6,16 +6,6 @@ var Content = function(tag)
     this.timer = 200;
 }
 
-Content.prototype.getContent = function(data)
-{
-    var self = this;
-    $.getJSON(
-        data.url + '/',
-        data.id,
-        self.showContent.bind(self)
-    );
-}
-
 Content.prototype.showContent = function(jsonData)
 {
     const IMGLINK = 'assets/img/';
@@ -54,4 +44,14 @@ Content.prototype.showContent = function(jsonData)
         $('#' + this.DOMElement.id).fadeTo(this.timer, 1);
         document.getElementById('ws-container').style.boxShadow = "inset 0px 0px 20px 6px rgba(0,0,0,0.75)";
     }     
+}
+
+Content.prototype.getContent = function(data)
+{
+    var self = this;
+    $.getJSON(
+        data.url,
+        data.id,
+        self.showContent.bind(self)
+    );
 }
