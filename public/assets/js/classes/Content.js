@@ -9,8 +9,9 @@ var Content = function(tag)
 Content.prototype.getContent = function(data)
 {
     var self = this;
-    $.getJSON(
-        data.url + '/' + data.id,
+    $.postJSON(
+        data.url,
+        data.id,
         self.showContent.bind(self)
     );
 }
