@@ -12,10 +12,8 @@ Content.prototype.getContent = function(data)
     $.getJSON(
         data.url,
         data.id,
-        function(){
-            self.showContent.bind(self)
-        }
-    );
+        self.showContent.bind(self)
+    ).done(() => console.log('req ajax done'))
 }
 
 Content.prototype.showContent = function(jsonData)
