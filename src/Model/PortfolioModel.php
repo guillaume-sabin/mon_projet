@@ -25,7 +25,7 @@ class PortfolioModel {
                 FROM `website` 
                 WHERE `id` = ?';
 
-        return $this->db->queryOne($sql, $id);
+        return $this->db->queryOne($sql, [$id]);
     }
 
     public function getOneWebsiteInformations($id) {
