@@ -25,7 +25,7 @@ class Database {
     public function queryOne($sql, $params = []) {
         
         $data = $this->db->fetchAssoc($sql, $params);
-        return $data[0];
+        return $data;
     }
 
     public function executeSql($sql, $params = []) {

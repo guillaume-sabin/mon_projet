@@ -14,15 +14,18 @@ Content.prototype.getContent = function(data)
         data.id,
         self.showContent.bind(self)
     )
+    .progress(function(value){
+        console.log('state : ' + value)
+    })
     .done(function(){
         console.log('req ajax done :>')
     })
     .fail(self.getError);
 }
 
-Content.prototype.getError = function(value)
+Content.prototype.getError = function()
 {
-    console.log('there is an error : ' + value)
+    console.log('there is an error')
 }
 
 Content.prototype.showContent = function(jsonData)
