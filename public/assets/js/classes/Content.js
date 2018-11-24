@@ -13,7 +13,13 @@ Content.prototype.getContent = function(data)
         data.url,
         data.id,
         self.showContent.bind(self)
-    ).done(() => console.log('req ajax done'))
+    )
+    .done(function(){
+        console.log('req ajax done :>')
+    })
+    .fail(function(){
+        console.log('ajax req failed :<')
+    })
 }
 
 Content.prototype.showContent = function(jsonData)
