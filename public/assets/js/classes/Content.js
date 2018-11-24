@@ -20,9 +20,9 @@ Content.prototype.getContent = function(data)
     .fail(self.getError);
 }
 
-Content.prototype.getError = function()
+Content.prototype.getError = function(value)
 {
-    console.log('there is an error !')
+    console.log('there is an error : ' + value)
 }
 
 Content.prototype.showContent = function(jsonData)
