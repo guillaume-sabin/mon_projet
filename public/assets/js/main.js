@@ -66,7 +66,7 @@ $(function(){
 				axe: 'y'
 			}); 
 
-			setTimeout(function(){
+			//setTimeout(function(){
 
 				for(var i = 0; i < nodeLinks.length; i++)
 				{
@@ -82,7 +82,7 @@ $(function(){
 						});
 					})	
 				}
-			}, 0);
+			//}, 0);
 		}
 
 
