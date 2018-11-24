@@ -1,0 +1,24 @@
+version: '3'
+services:
+  portfolio-db:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=example
+      - POSTGRES_USER=example
+    volumes:
+      - ./resources/db_pgsql.sql:/docker-entrypoint-initdb.d/db_pgsql.sql
+      - ./data/postgres:/var/lib/postgresql/data
+  portfolio:
+    build: .
+    environment:
+      - ENV_PHP_DB_DRIVER=pdo_pgsql
+      - ENV_PHP_DB_HOST=portfolio-db
+      - ENV_PHP_DB_USER=example
+      - ENV_PHP_DB_PSWD=example
+      - ENV_PHP_DB_NAME=portfolio
+      - ENV_PHP_DB_PORT=5432
+    ports:
+      - 8008:8008
+    depends_on:
+      - portfolio-db
