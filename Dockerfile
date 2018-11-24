@@ -12,10 +12,10 @@ RUN ln -s /usr/share/zoneinfo/Europe/Paris /etc/localtime
 RUN "date"
 
 #RUN echo 'alias sf="php app/console"' >> ~/.bashrc
-RUN mkdir -p /usr/src/
-COPY . /usr/src/
+RUN mkdir -p /usr/www/
+COPY . /usr/www/
 
-WORKDIR /usr/src
+WORKDIR /usr/www
 RUN composer install
 
 RUN useradd -m myuser
