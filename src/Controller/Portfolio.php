@@ -9,13 +9,13 @@ use Doctrine\DBAL\Connection;
 
 class Portfolio {
 
-    public function showPortfolio(Application $app) 
+    public function showPortfolio(Application $app)
     {
       return $app['twig']
       ->render('Portfolio.twig', array('sites' => $this->getContent($app['db'])));
     }
 
-    private function getContent(Connection $db) 
+    private function getContent(Connection $db)
     {
       $pfmodel = new PortfolioModel($db);
       return $pfmodel->getAll();
@@ -23,6 +23,9 @@ class Portfolio {
 
     public function getPortfolio(Application $app, $id)
     {
+
+
+
       $pfmodel = new PortfolioModel($app['db']);
       $data = $pfmodel->getOne($id);
       return $app->json($data);
