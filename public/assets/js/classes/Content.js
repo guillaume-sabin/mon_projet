@@ -17,9 +17,12 @@ Content.prototype.getContent = function(data)
     .done(function(){
         console.log('req ajax done :>')
     })
-    .fail(function(){
-        console.log('ajax req failed :<')
-    })
+    .fail(self.getError);
+}
+
+Content.prototype.getError = function()
+{
+    console.log('there is an error !')
 }
 
 Content.prototype.showContent = function(jsonData)
