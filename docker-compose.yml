@@ -20,5 +20,8 @@ services:
       - ENV_PHP_DB_PORT=5432
     ports:
       - 8008:8008
+    volumes:
+      - ./src:/usr/www/src
+      - ./public:/usr/www/public
     depends_on:
       - portfolio-db
