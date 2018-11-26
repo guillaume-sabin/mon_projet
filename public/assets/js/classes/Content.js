@@ -40,11 +40,14 @@ Content.prototype.showContent = function(jsonData)
         $('#' + this.DOMElement.id).fadeTo(this.timer, 0, function(){
             this.DOMElement.setAttribute('src', IMGLINK + jsonData.url);
             this.DOMElement.setAttribute('alt', jsonData.description);
-            this.DOMElement.dataset.wsId = jsonData.id;   
+            this.DOMElement.dataset.wsId = jsonData.id;
+        }.bind(this));
+
+        window.setTimeout(function(){
 
             // Show the container 
-            $('#' + this.DOMElement.id).fadeTo(this.timer, 1);
-            document.getElementById('ws-container').style.boxShadow = "inset 0px 0px 20px 6px rgba(0,0,0,0.75)";
-        }.bind(this));
+            $('#' + this.DOMElement.id).fadeTo(this.timer*4, 1);
+            document.getElementById('ws-container').style.boxShadow = "inset 0px 0px 20px 6px rgba(0,0,0,0.75)"
+        }, this.timer)
     }     
 }
