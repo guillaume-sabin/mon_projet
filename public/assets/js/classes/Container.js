@@ -8,6 +8,19 @@ var Container = function()
     this.id;
     this.parentNode;
     this.informationsContainer; 
+    this.fadeDelay;
+    this.activateLinks = true;
+}
+
+Container.prototype.setFadeDelay = function(delay)
+{
+    if(isNaN(delay) == false)
+    {
+        this.fadeDelay = delay;
+        return;
+    }
+
+    console.log('delay must be a number !');   
 }
 
 Container.prototype.createContainer = function(tag, id)
@@ -24,11 +37,36 @@ Container.prototype.getContent = function(data)
 {
     var self = this;
     $.getJSON(
-        data.url + '/' + data.id,
+        data.url + '/' + data.id + '/informations',
         self.insertContent.bind(self)
     );
 }
 
+// Hide and do not display .ws-link & lock #ws-informations
+Container.prototype.lockLinks = function()
+{
+    var links = document.getElementsByClassName('ws-link');
+
+    if(this.activateLinks)
+    {
+        $('#ws-informations').prop('disabled', true);
+        for(var i = 0; i < links.length; i++)
+        {
+            $(links[i]).fadeTo(this.fadeDelay*i/5, 0);
+        }
+        window.setTimeout(function(){
+            $('.ws-link').hide();
+        }, this.fadeDelay);
+        this.activateLinks = false;
+        return;
+    }
+    
+    $('#ws-informations').prop('disabled', false);
+    $('.ws-link').show().fadeTo(this.fadeDelay/5, 1);
+    this.activateLinks = true;
+}
+
+// create and build #ws-informations container 
 Container.prototype.insertContent = function(jsonData)
 {
     const IMGLINK = 'assets/img/';
@@ -101,6 +139,7 @@ Container.prototype.showContainer = function(node, parentNode)
         this.parentNode = document.querySelector(parentNode);
         node.insertBefore(this.informationsContainer, this.parentNode);   
         $('#website').addClass('blur'); 
+        $('#description').fadeTo(this.fadeDelay, .8);
     }
     
 }

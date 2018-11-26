@@ -44,7 +44,7 @@ $(function(){
 					container.createContainer('img', containerId);
 					container.getContent({
 
-						url : 'portfolio/informations',
+						url : 'portfolio',
 						id : nodeLinks[i].id.slice(5)
 					});
 					
@@ -100,17 +100,17 @@ $(function(){
 			
 			if(websiteId != undefined && document.getElementById('description') === null)
 			{
-				$('#ws-informations').prop('disabled', true);
 				var delay = 800;
 				var container = new Container();
+				container.setFadeDelay(delay);
+				container.lockLinks();
 				container.createContainer('div', 'description');
 				container.getContent({
 
-					url : 'portfolio/informations',
+					url : 'portfolio',
 					id : websiteId
 				});
 				container.showContainer('#ws-container', '#website');
-				$('#description').fadeTo(delay, .8);
 			}
 
 			window.setTimeout(function()
@@ -130,8 +130,8 @@ $(function(){
 							parentNode.removeChild(childNode);
 							$('#ws-informations').prop('disabled', false);
 							$('#website').removeClass('blur');
-
-						}, delay)
+							container.lockLinks();
+						}.bind(container), delay)
 					}	
 				});
 			}, delay);

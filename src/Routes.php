@@ -17,6 +17,6 @@ class Routes {
     $app->get('/portfolio', 'App\Controller\Portfolio::showPortfolio')->bind('portfolio');
     $app->get('/contact', 'App\Controller\Contact::showContact')->bind('contact');
     $app->get('/portfolio/{id}', 'App\Controller\Portfolio::getPortfolio');
-    $app->get('/portfolio/informations/{id}', 'App\Controller\Portfolio::getWebsiteInformations');
+    $app->get('/portfolio/{id}/informations', 'App\Controller\Portfolio::getWebsiteInformations');
   }
 }

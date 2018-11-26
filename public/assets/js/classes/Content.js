@@ -10,28 +10,15 @@ Content.prototype.getContent = function(data)
 {
     var self = this;
     $.getJSON(
-        data.url,
-        data.id,
+        data.url + '/' + data.id,
         self.showContent.bind(self)
     )
-    .progress(function(value){
-        console.log('state : ' + value)
-    })
-    .done(function(){
-        console.log('req ajax done :>')
-    })
-    .fail(self.getError);
-}
-
-Content.prototype.getError = function()
-{
-    console.log('there is an error')
 }
 
 Content.prototype.showContent = function(jsonData)
 {
     const IMGLINK = 'assets/img/';
-    console.log('inside showContent method');
+
     if(this.DOMElement.nodeName == 'P')
     {
         // Create a new container <img> and set his attributes

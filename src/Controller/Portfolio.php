@@ -25,13 +25,13 @@ class Portfolio {
     {
       $pfmodel = new PortfolioModel($app['db']);
       $data = $pfmodel->getOne($id);
-      return json_encode($data);
+      return $app->json($data);
     }
 
     public function getWebsiteInformations(Application $app, $id)
     {
       $pfmodel = new PortfolioModel($app['db']);
-      $data = $pfmodel->getOneWebsiteInformations($id);
-      return json_encode($data);
+      $data = $pfmodel->getOne($id);
+      return $app->json($data);
     }
 }
