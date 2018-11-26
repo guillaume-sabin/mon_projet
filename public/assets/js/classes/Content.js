@@ -44,10 +44,10 @@ Content.prototype.showContent = function(jsonData)
             this.DOMElement.setAttribute('src', IMGLINK + jsonData.url);
             this.DOMElement.setAttribute('alt', jsonData.description);
             this.DOMElement.dataset.wsId = jsonData.id;   
-        }.bind(this));
 
-        // Show the container 
-        $('#' + this.DOMElement.id).fadeTo(this.timer, 1);
-        document.getElementById('ws-container').style.boxShadow = "inset 0px 0px 20px 6px rgba(0,0,0,0.75)";
+            // Show the container 
+            $('#' + this.DOMElement.id).fadeTo(this.timer, 1);
+            document.getElementById('ws-container').style.boxShadow = "inset 0px 0px 20px 6px rgba(0,0,0,0.75)";
+        }.bind(this));
     }     
 }
