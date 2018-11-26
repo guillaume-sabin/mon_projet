@@ -9,10 +9,7 @@ var Content = function(tag)
 Content.prototype.getContent = function(data)
 {
     var self = this;
-    $.getJSON(
-        data.url + '/' + data.id,
-        self.showContent.bind(self)
-    )
+    $.getJSON(data.url + '/' + data.id).done(self.showContent.bind(self))
 }
 
 Content.prototype.showContent = function(jsonData)
