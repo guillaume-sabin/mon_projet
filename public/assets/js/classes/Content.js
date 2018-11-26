@@ -48,6 +48,6 @@ Content.prototype.showContent = function(jsonData)
             // Show the container 
             $('#' + this.DOMElement.id).fadeTo(this.timer*4, 1);
             document.getElementById('ws-container').style.boxShadow = "inset 0px 0px 20px 6px rgba(0,0,0,0.75)"
-        }, this.timer)
+        }.bind(this), this.timer)
     }     
 }
