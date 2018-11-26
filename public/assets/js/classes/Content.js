@@ -40,14 +40,11 @@ Content.prototype.showContent = function(jsonData)
     else if(this.DOMElement.dataset.wsId != jsonData.id)
     {
         // Hide the container before setting new params
-        $('#' + this.DOMElement.id).fadeTo(this.timer, 0);
-        
-        // Delay the container's settings
-        setTimeout((function(){
+        $('#' + this.DOMElement.id).fadeTo(this.timer, 0, function(){
             this.DOMElement.setAttribute('src', IMGLINK + jsonData.url);
             this.DOMElement.setAttribute('alt', jsonData.description);
-            this.DOMElement.dataset.wsId = jsonData.id;
-        }).bind(this), this.timer);
+            this.DOMElement.dataset.wsId = jsonData.id;   
+        }.bind(this));
 
         // Show the container 
         $('#' + this.DOMElement.id).fadeTo(this.timer, 1);
