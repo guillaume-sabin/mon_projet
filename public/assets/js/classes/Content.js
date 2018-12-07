@@ -8,7 +8,6 @@ var Content = function(tag)
 
 Content.prototype.getContent = function(data)
 {
-    var self = this;
     $.getJSON(data.url + '/' + data.id)
     .done(function(jsonData){
         const IMGLINK = 'assets/img/';
@@ -43,7 +42,7 @@ Content.prototype.getContent = function(data)
             window.setTimeout(function(){
 
                 // Show the container 
-                $('#' + this.DOMElement.id).fadeTo(this.timer*4, 1);
+                $('#' + this.DOMElement.id).fadeTo(this.timer, 1);
                 document.getElementById('ws-container').style.boxShadow = "inset 0px 0px 20px 6px rgba(0,0,0,0.75)"
             }.bind(this), this.timer)
         }     
