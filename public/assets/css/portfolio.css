@@ -141,7 +141,7 @@
 	{
 		top:220px;
 		right:30px;
-	}    
+	}  
 }
 
 /* 1024px */
@@ -174,7 +174,7 @@
 			display:block;
 			padding-top:60px;
 			margin-top:0;
-			font-size:30px;
+			font-size:22px;
 			background:#0b1013;
 			color:white;
 			font-family: 'VT323', monospace;
@@ -184,17 +184,18 @@
 		#sidebar ul
 		{
 			padding-top:20px;
-			padding-right:50px;
+			padding-right:25px;
 			padding-bottom:50px;
 			text-align: right;
 		}
 
 
-		#sidebar li
+		#main-container #sidebar li
 		{
 			margin-bottom:35px;
 			cursor: pointer;
 			list-style-type:none;
+			font-size:13px;
 		}
 
 
@@ -206,7 +207,7 @@
 
 		#website
 		{
-			font-size:45px;
+			font-size:28px;
 			color:grey;
 			opacity:0;
 			position:relative;
@@ -217,23 +218,22 @@
 			font-family: 'Font Awesome\ 5 Free';
 			content: "\f0a5";
 			position:absolute;
-			left:190px;
 			animation:hand-bounce 1.7s ease infinite;
 		}
 
 		@keyframes hand-bounce
 		{
 			from {
-				left: 190px;
-				opacity:0;
+				left: 20px;
+				opacity:1;
 			}
 			50%  {
 				left: 90px;
-				opacity:1;
+				opacity:0;
 			}
 			to   {
-				left: 190px;
-				opacity:0;
+				left: 20px;
+				opacity:1;
 			}
 		}
 
@@ -303,4 +303,40 @@
 			margin-right:4px;
 		}
 
+}
+
+/* 1024px */
+@media screen and (min-width:1440px)
+{
+	#sidebar h2
+	{
+		font-size:28px;
+		padding-left:0px;
+	}
+
+	#sidebar li
+	{
+		font-size:15px;
+	}
+
+	#website
+	{
+		font-size:35px;
+	}
+
+	@keyframes hand-bounce
+		{
+			from {
+				left: 40px;
+				opacity:1;
+			}
+			50%  {
+				left: 150px;
+				opacity:0;
+			}
+			to   {
+				left: 40px;
+				opacity:1;
+			}
+		}
 }
