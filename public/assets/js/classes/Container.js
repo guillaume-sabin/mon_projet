@@ -35,11 +35,37 @@ Container.prototype.createContainer = function(tag, id)
 
 Container.prototype.getContent = function(data)
 {
-    var self = this;
-    $.getJSON(
-        data.url + '/' + data.id + '/informations',
-        self.insertContent.bind(self)
-    );
+    $.getJSON(data.url + '/' + data.id + '/informations')
+
+    // create and build #ws-informations container 
+    .done(function(jsonData){
+        const IMGLINK = 'assets/img/';
+
+        if(matchMedia('(min-width:320px)').matches && matchMedia('(max-width:1023px)').matches)
+        {
+            this.informationsContainer.src = IMGLINK + jsonData.url; 
+            this.informationsContainer.alt = jsonData.description;
+            this.parentNode.children[0].classList.add('title-mobile');  
+        }
+
+        if(matchMedia('(min-width:1024px)').matches)
+        {
+            // Create close button
+            this.createChild('button', '<i class="fas fa-times"></i>', 'close-tab');
+
+            // Create a container for the website's title, then insert it into the main div
+            var title = '<span class="title-description">' + jsonData.name + '</span>';
+            this.createChild('h3', title);
+        }
+
+        // Create a container for the website's languages, then insert it into the main div
+        var languages = '<span>Languages utilisés : </span>' + jsonData.languages;
+        this.createChild('p', languages);
+
+        // Create a container for the website's description, then insert it into the main div
+        var description = '<span>Description : </span>' + jsonData.technical_description;
+        this.createChild('p', description)        
+    }.bind(this));
 }
 
 // Hide and do not display .ws-link & lock #ws-informations
@@ -67,6 +93,7 @@ Container.prototype.lockLinks = function()
 }
 
 // create and build #ws-informations container 
+/*
 Container.prototype.insertContent = function(jsonData)
 {
     const IMGLINK = 'assets/img/';
@@ -94,10 +121,9 @@ Container.prototype.insertContent = function(jsonData)
 
     // Create a container for the website's description, then insert it into the main div
     var description = '<span>Description : </span>' + jsonData.technical_description;
-    this.createChild('p', description)
-    
+    this.createChild('p', description) 
 }
-
+*/
 Container.prototype.createChild = function(tag, content, id)
 {
     var container = document.createElement(tag);
