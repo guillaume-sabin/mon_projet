@@ -34,7 +34,7 @@ class PortfolioModel {
 
     public function getOneWebsiteInformations($id) {
         $query = $this->queryBuilder
-        ->select('name, languages, frameworks, technical_description')
+        ->select('*')
         ->from('website')
         ->where('id = :id');
 
