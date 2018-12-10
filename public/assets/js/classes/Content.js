@@ -26,8 +26,9 @@ Content.prototype.getContent = function(data)
                 this.DOMElement.replaceWith(newHtmlElement);
 
                 // Show the new container
-                $('#' + this.DOMElement.id).fadeTo(this.timer, 1);
-                document.getElementById('ws-container').style.boxShadow = "inset 0px 0px 20px 6px rgba(0,0,0,0.75)";
+                $('#' + this.DOMElement.id).fadeTo(this.timer, 1, function(){
+                    document.getElementById('ws-container').style.boxShadow = "inset 0px 0px 20px 6px rgba(0,0,0,0.75)";
+                });
             }.bind(this));
         }
 
@@ -42,8 +43,9 @@ Content.prototype.getContent = function(data)
                 this.DOMElement.dataset.wsId = jsonData.id;
 
                 // Show the container 
-                $('#' + this.DOMElement.id).fadeTo(this.timer*4, 1);
-                document.getElementById('ws-container').style.boxShadow = "inset 0px 0px 20px 6px rgba(0,0,0,0.75)"
+                $('#' + this.DOMElement.id).fadeTo(this.timer*4, 1, function(){
+                    document.getElementById('ws-container').style.boxShadow = "inset 0px 0px 20px 6px rgba(0,0,0,0.75)";
+                });
             }.bind(this));
         }     
     }.bind(this));
