@@ -17,15 +17,14 @@ class Database {
       return $this->db->prepare($sql);
     }
 
-    public function queryAll($sql) {
+    public function queryAll($query) {
       
-        return $this->db->fetchAll($sql);
+        return $this->db->fetchAll($query);
     }
 
-    public function queryOne($sql, $params = []) {
+    public function queryOne($query, $id) {
         
-        $data = $this->db->fetchAssoc($sql, $params);
-        return $data;
+        return $this->db->fetchAssoc($query, [':id' => $id]);
     }
 
     public function executeSql($sql, $params = []) {

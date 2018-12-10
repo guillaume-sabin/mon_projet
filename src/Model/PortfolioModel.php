@@ -12,28 +12,32 @@ class PortfolioModel {
 
     public function __construct(Connection $conn) {
         $this->db = new Database($conn);
+        $this->queryBuilder = $conn->createQueryBuilder();
     }
 
     public function getAll() {
-        $sql = "SELECT * FROM website";
-
-        return $this->db->queryAll($sql);
+        // Equivalent to $query = 'SELECT * FROM website';
+        $query = $this->queryBuilder
+        ->select('*')
+        ->from('website');
+        return $this->db->queryAll($query);
     }
 
     public function getOne($id) {
-        $sql = "SELECT *
-                FROM website
-                WHERE id= $id";
+        $query = $this->queryBuilder
+        ->select('id, url, description')
+        ->from('website')
+        ->where('id = :id');
 
-        $data = $this->db->queryAll($sql);
-        return $data[0];
+        return $this->db->queryOne($query, $id);
     }
 
     public function getOneWebsiteInformations($id) {
-        $sql = "SELECT * 
-                FROM website 
-                WHERE id = ?";
+        $query = $this->queryBuilder
+        ->select('name, languages, frameworks, technical_description')
+        ->from('website')
+        ->where('id = :id');
 
-        return $this->db->queryOne($sql, $id);
+        return $this->db->queryOne($query, $id);
     }
 }

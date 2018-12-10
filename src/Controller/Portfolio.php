@@ -31,7 +31,7 @@ class Portfolio {
     public function getWebsiteInformations(Application $app, $id)
     {
       $pfmodel = new PortfolioModel($app['db']);
-      $data = $pfmodel->getOne($id);
+      $data = $pfmodel->getOneWebsiteInformations($id);
       return $app->json($data);
     }
 }
