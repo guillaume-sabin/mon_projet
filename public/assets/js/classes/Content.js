@@ -8,8 +8,9 @@ var Content = function(tag)
 
 Content.prototype.getContent = function(data)
 {
-    $.getJSON(data.url + '/' + data.id)
-    .done(function(jsonData){
+    var request = $.getJSON(data.url + '/' + data.id);
+    
+    request.done(function(jsonData){
         const IMGLINK = 'assets/img/';
 
         if(this.DOMElement.nodeName == 'P')
