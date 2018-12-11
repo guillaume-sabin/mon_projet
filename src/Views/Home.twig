@@ -11,9 +11,11 @@
 		<section class="personal-description-container">
 			<h2>A propos</h2>
 			<article>
-				{% for contact in contacts %}
-					<img id="author-picture"src="assets/img/{{ contact.photo }}" alt="photo de l'autheur" />
-				{% endfor %}
+				{% autoescape %}
+					{% for contact in contacts %}
+						<img id="author-picture"src="assets/img/{{ contact.photo }}" alt="photo de l'autheur" />
+					{% endfor %}
+				{% endautoescape %}
 				<p><span class="introduction">Bonjour, je m'appelle Guillaume je suis developpeur web junior.</span><br>
 				Passionner d'informatique, de jeux vidéos et du web tout particulièrement j'ai réaliser mon rêve en faisant une reconversion dans le developpement web afin de pouvoir apporter ma petite pierre à l'édifice qu'est internet aujourd'hui.<br>
 				Ce que j'aime le plus? Avoir mon IDE ouvert et tapper du code !<br>
@@ -150,17 +152,18 @@
 				<article class="alt-skill-container">
 				<h3>Autres :</h3>
 					<ul>
-						<li>Bibliothèque JS : <span class="alt-skill-element">jQuery</span></li>
-						<li>Préprocesseur CSS : <span class="alt-skill-element">SASS</span></li>
-						<li>Moteur de template : <span class="alt-skill-element">Twig, EJS</span></li>
-						<li>Micro-framework : <span class="alt-skill-element">Silex</span></li>
-						<li>Framework : <span class="alt-skill-element">Bootstrap</span></li>
-						<li>Système de géstion de BDD : <span class="alt-skill-element">phpMyAdmin</span></li>
-						<li>Système de géstion de contenu :<span class="alt-skill-element"> Wordpress</span></li>
-						<li>Géstionnaire de dépendance: <span class="alt-skill-element">Composer</span></li>
-						<li>Logiciel de géstion de version : <span class="alt-skill-element">Git</span></li>
-						<li>Plateforme de développement Web : <span class="alt-skill-element">WAMP</span></li>
+						<li>Bibliothèque JS : <span class="alt-skill-element">jQuery ***</span></li>
+						<li>Préprocesseur CSS : <span class="alt-skill-element">SASS *</span></li>
+						<li>Moteur de template : <span class="alt-skill-element">Twig **, EJS *</span></li>
+						<li>Micro-framework : <span class="alt-skill-element">Silex **</span></li>
+						<li>Framework : <span class="alt-skill-element">Bootstrap **</span></li>
+						<li>Système de géstion de BDD : <span class="alt-skill-element">phpMyAdmin ***</span></li>
+						<li>Système de géstion de contenu :<span class="alt-skill-element">Wordpress *</span></li>
+						<li>Géstionnaire de dépendance: <span class="alt-skill-element">Composer **</span></li>
+						<li>Logiciel de géstion de version : <span class="alt-skill-element">Git *</span></li>
+						<li>Plateforme de développement Web : <span class="alt-skill-element">WAMP **</span></li>
 					</ul>
+					<p class="alt-skill-mastering">Niveau de maîtrise allant de 1<span>*</span> à 5<span>*</span></p>
 				</article>
 			</div>
 		</section>

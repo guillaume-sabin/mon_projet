@@ -65,6 +65,17 @@
 	font-style:italic;
 }
 
+.alt-skill-mastering
+{
+	text-align:center;
+}
+
+.alt-skill-mastering span
+{
+	color:#0049a5;
+	font-style:italic;
+}
+
 /* 768px+ */
 @media screen and (min-width:768px)
 {
