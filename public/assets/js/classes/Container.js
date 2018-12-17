@@ -98,18 +98,13 @@ Container.prototype.createChild = function(tag, content, id)
     var container = document.createElement(tag);
     container.insertAdjacentHTML('afterbegin', content);
 
-    if(id != undefined)
-    {
+    if(id != undefined){
         container.id = id;
     }
 
-    if(matchMedia('(min-width:320px)').matches && matchMedia('(max-width:1023px)').matches)
-    {
+    if(matchMedia('(min-width:320px)').matches && matchMedia('(max-width:1023px)').matches){
         this.parentNode.appendChild(container);
-    }
-
-    else{
-
+    } else{
         this.informationsContainer.appendChild(container);
     }
 }
@@ -117,19 +112,15 @@ Container.prototype.createChild = function(tag, content, id)
 // Attach an event to an element
 Container.prototype.addListener = function(id)
 {
-    if(id != undefined)
-    {
+    if(id != undefined){
         document.getElementById(id).addEventListener('click', this.closeTabBehavior.bind(this));
-    }
-
-    else{
+    } else{
         console.log('You must specify the tag to listen to it!')
     }
 }
 
 Container.prototype.closeTabBehavior = function()
 {
-    console.log(this)
     $('#' + this.id).fadeTo(this.fadeDelay, 0, function(){
         var parentNode = document.getElementById('ws-container'),
             childNode = document.getElementById('description');
@@ -145,23 +136,20 @@ Container.prototype.showContainer = function(node, parentNode)
 {
     if(matchMedia('(min-width:320px)').matches && matchMedia('(max-width:1023px)').matches)
     {
+        var node = document.querySelector(node);
+
         // Hide the containers we don't need  for this animation
         document.getElementById('ws-container').style.display = 'none'; 
         document.getElementById('ws-informations').style.display = 'none'; 
         
-        
-        var node = document.querySelector(node);
         this.parentNode = document.querySelector(parentNode);
         this.parentNode.insertBefore(this.informationsContainer, node.nextSibling);
     }
-
     else{
-        
         var node = document.querySelector(node);
         this.parentNode = document.querySelector(parentNode);
         node.insertBefore(this.informationsContainer, this.parentNode);   
         $('#website').addClass('blur'); 
         $('#description').fadeTo(this.fadeDelay, .8);
     }
-    
 }
