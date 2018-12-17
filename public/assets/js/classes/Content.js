@@ -35,20 +35,30 @@ Content.prototype.getContent = function(data)
         // Check if the clicked link is a new one
         else if(this.DOMElement.dataset.wsId != jsonData.id)
         {
-            // Hide the container before setting new params
-            $('#' + this.DOMElement.id).fadeTo(this.timer/2, 0, function(){
-
-                this.DOMElement.setAttribute('src', IMGLINK + jsonData.url);
-                this.DOMElement.setAttribute('alt', jsonData.description);
-                this.DOMElement.dataset.wsId = jsonData.id;
+            var loadDatas = function(){
+                // Hide the container before setting new params
+                return $('#' + this.DOMElement.id).fadeTo(this.timer/2, 0, function(){
+    
+                    this.DOMElement.setAttribute('src', IMGLINK + jsonData.url);
+                    this.DOMElement.setAttribute('alt', jsonData.description);
+                    this.DOMElement.dataset.wsId = jsonData.id;
+                }.bind(this));
+            }.bind(this);
+            
+            $.when(loadDatas()).done(function(){
+                // Show the container 
+                $('#' + this.DOMElement.id).fadeTo(this.timer*4, 1, function(){
+                    document.getElementById('ws-container').style.boxShadow = "inset 0px 0px 20px 6px rgba(0,0,0,0.75)";
+                });      
             }.bind(this));
-
+            /*
             $('#' + this.DOMElement.id).promise().done(function(){
                 // Show the container 
                 $('#' + this.DOMElement.id).fadeTo(this.timer*4, 1, function(){
                     document.getElementById('ws-container').style.boxShadow = "inset 0px 0px 20px 6px rgba(0,0,0,0.75)";
                 });              
             }.bind(this));
+            */
         }     
     }.bind(this));
 }
