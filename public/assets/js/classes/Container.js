@@ -52,6 +52,7 @@ Container.prototype.getContent = function(data)
         {
             // Create close button
             this.createChild('button', '<i class="fas fa-times"></i>', 'close-tab');
+            this.addListener('close-tab');
 
             // Create a container for the website's title, then insert it into the main div
             var title = '<span class="title-description">' + jsonData.name + '</span>';
@@ -92,38 +93,6 @@ Container.prototype.lockLinks = function()
     this.activateLinks = true;
 }
 
-// create and build #ws-informations container 
-/*
-Container.prototype.insertContent = function(jsonData)
-{
-    const IMGLINK = 'assets/img/';
-
-    if(matchMedia('(min-width:320px)').matches && matchMedia('(max-width:1023px)').matches)
-    {
-        this.informationsContainer.src = IMGLINK + jsonData.url; 
-        this.informationsContainer.alt = jsonData.description;
-        this.parentNode.children[0].classList.add('title-mobile');  
-    }
-
-    if(matchMedia('(min-width:1024px)').matches)
-    {
-        // Create close button
-        this.createChild('button', '<i class="fas fa-times"></i>', 'close-tab');
-
-        // Create a container for the website's title, then insert it into the main div
-        var title = '<span class="title-description">' + jsonData.name + '</span>';
-        this.createChild('h3', title);
-    }
-
-    // Create a container for the website's languages, then insert it into the main div
-    var languages = '<span>Languages utilisés : </span>' + jsonData.languages;
-    this.createChild('p', languages);
-
-    // Create a container for the website's description, then insert it into the main div
-    var description = '<span>Description : </span>' + jsonData.technical_description;
-    this.createChild('p', description) 
-}
-*/
 Container.prototype.createChild = function(tag, content, id)
 {
     var container = document.createElement(tag);
@@ -143,6 +112,33 @@ Container.prototype.createChild = function(tag, content, id)
 
         this.informationsContainer.appendChild(container);
     }
+}
+
+// Attach an event to an element
+Container.prototype.addListener = function(id)
+{
+    if(id != undefined)
+    {
+        document.getElementById(id).addEventListener('click', this.closeTabBehavior.bind(this));
+    }
+
+    else{
+        console.log('You must specify the tag to listen to it!')
+    }
+}
+
+Container.prototype.closeTabBehavior = function()
+{
+    console.log(this)
+    $('#' + this.id).fadeTo(this.fadeDelay, 0, function(){
+        var parentNode = document.getElementById('ws-container'),
+            childNode = document.getElementById('description');
+
+        parentNode.removeChild(childNode);
+        $('#ws-informations').prop('disabled', false);
+        $('#website').removeClass('blur');
+    });
+    this.lockLinks();
 }
 
 Container.prototype.showContainer = function(node, parentNode)
