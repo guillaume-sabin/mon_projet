@@ -119,6 +119,7 @@ Container.prototype.addListener = function(id)
     }
 }
 
+// Behavior of the close-tab element
 Container.prototype.closeTabBehavior = function()
 {
     $('#' + this.id).fadeTo(this.fadeDelay, 0, function(){
