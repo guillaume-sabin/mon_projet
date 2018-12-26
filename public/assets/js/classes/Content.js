@@ -35,45 +35,31 @@ Content.prototype.getContent = function(data)
         // Check if the clicked link is a new one
         else if(this.DOMElement.dataset.wsId != jsonData.id)
         {
-           let that = this;
            new Promise(function(resolve, reject) {
-            $('#' + that.DOMElement.id).fadeTo(that.timer/2, 0, function() {
-                resolve();
-            })
-           }).then(function(){
-            that.DOMElement.setAttribute('src', IMGLINK + jsonData.url);
-            that.DOMElement.setAttribute('alt', jsonData.description);
-            that.DOMElement.dataset.wsId = jsonData.id;
-           }).then(function(){
-            $('#' + that.DOMElement.id).fadeTo(that.timer*4, 1, function(){
-                document.getElementById('ws-container').style.boxShadow = "inset 0px 0px 20px 6px rgba(0,0,0,0.75)";
-            }); 
+               try{
+                    $('#' + this.DOMElement.id).fadeTo(this.timer/2, 0, function() {
+                        resolve();
+                    })
+               }
+               catch(error){
+                    reject(error);
+               }
+                
+           }.bind(this))
+           .then(() => {
+                this.DOMElement.setAttribute('src', IMGLINK + jsonData.url);
+                this.DOMElement.setAttribute('alt', jsonData.description);
+                this.DOMElement.dataset.wsId = jsonData.id;
            })
-
-          /*  var loadDatas = function(){
-                // Hide the container before setting new params
-                return $('#' + this.DOMElement.id).fadeTo(this.timer/2, 0, function(){
-    
-                    this.DOMElement.setAttribute('src', IMGLINK + jsonData.url);
-                    this.DOMElement.setAttribute('alt', jsonData.description);
-                    this.DOMElement.dataset.wsId = jsonData.id;
-                }.bind(this));
-            }.bind(this);
-            
-            $.when(loadDatas()).done(function(){
-                // Show the container 
+           .then(() => {
                 $('#' + this.DOMElement.id).fadeTo(this.timer*4, 1, function(){
                     document.getElementById('ws-container').style.boxShadow = "inset 0px 0px 20px 6px rgba(0,0,0,0.75)";
-                });      
-            }.bind(this));*/
-            /*
-            $('#' + this.DOMElement.id).promise().done(function(){
-                // Show the container 
-                $('#' + this.DOMElement.id).fadeTo(this.timer*4, 1, function(){
-                    document.getElementById('ws-container').style.boxShadow = "inset 0px 0px 20px 6px rgba(0,0,0,0.75)";
-                });              
-            }.bind(this));
-            */
+                }); 
+           })
+           // Call it only if there is an error in try{}
+           .catch((error)=> {
+               console.log(error);
+           })
         }     
     }.bind(this));
 }
