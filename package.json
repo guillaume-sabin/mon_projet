@@ -1,0 +1,25 @@
+{
+  "name": "mon_projet",
+  "version": "1.0.0",
+  "description": "Mon_projet est le premier projet que je réalise à l'issue de ma formation effectué par la 3wa",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guillaume-sabin/mon_projet.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/guillaume-sabin/mon_projet/issues"
+  },
+  "homepage": "https://github.com/guillaume-sabin/mon_projet#readme",
+  "devDependencies": {
+    "tape": "^4.9.1"
+  }
+}
