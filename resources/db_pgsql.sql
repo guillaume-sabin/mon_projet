@@ -1,3 +1,5 @@
+CREATE DATABASE portfolio;
+\connect portfolio;
 CREATE TABLE author (
   id INT NOT NULL,
   firstname varchar(255) NOT NULL,
