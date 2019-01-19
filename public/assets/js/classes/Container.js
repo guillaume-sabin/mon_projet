@@ -60,12 +60,13 @@ Container.prototype.getContent = function(data)
         }
 
         // Create a container for the website's languages, then insert it into the main div
-        var languages = '<span>Languages utilisés : </span>' + jsonData.languages;
+        var languages = '<span>Languages utilisés : </span>' + jsonData.languages.replace(/(\r\n|\n\r|\r|\n)/g, '<br/>');
         this.createChild('p', languages);
 
         // Create a container for the website's description, then insert it into the main div
-        var description = '<span>Description : </span>' + jsonData.technical_description;
-        this.createChild('p', description)        
+        var description = '<span>Description : </span>' + jsonData.technical_description.replace(/(\r\n|\n\r|\r|\n)/g, '<br/>');
+        this.createChild('p', description);
+        console.log(typeof jsonData.technical_description);        
     }.bind(this));
 }
 
