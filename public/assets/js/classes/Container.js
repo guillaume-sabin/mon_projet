@@ -60,7 +60,7 @@ Container.prototype.getContent = function(data)
         }
 
         // Create a container for the website's languages, then insert it into the main div
-        var languages = '<span>Languages utilisés : </span>' + jsonData.languages.replace(/(\r\n|\n\r|\r|\n)/g, '<br/>');
+        var languages = '<span>Languages utilisés : </span>' + jsonData.languages;
         this.createChild('p', languages);
 
         // Create a container for the website's description, then insert it into the main div
