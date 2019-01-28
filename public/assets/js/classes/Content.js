@@ -57,7 +57,7 @@ Content.prototype.getContent = function(data)
                 }); 
            })
            // Call it only if there is an error in try{}
-           .catch((error)=> {
+           .catch((error) => {
                console.log(error);
            })
         }     

@@ -3,6 +3,17 @@
     list-style-type:none;  
     margin-top:70px;   
 }
-/* 768 px */
 
-/* 1024 px */
+/* 768px */
+@media screen and (min-width:768px)
+{
+
+}
+
+/* 1024px */
+@media screen and (min-width:1024px)
+{
+    .author-infos{
+        margin-top:70px;    
+    }
+}
